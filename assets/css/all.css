@@ -3457,3 +3457,21 @@ img.emoji {
     background: none !important;
     padding: 0 !important;
 }
+#et-signature-1 {
+    width: 272px;
+}
+
+#et-signature-1.animate svg path {
+    stroke: #9a9a9a;
+    animation: pathAnimateStroke 3s cubic-bezier(0.785, 0.135, 0.150, 0.860) forwards 0s, pathAnimateFill1 0.6s ease-in-out forwards 1.5s;
+}
+
+@keyframes pathAnimateFill1 {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: #9a9a9a;
+        stroke: transparent;
+    }
+}
