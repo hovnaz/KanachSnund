@@ -11,4 +11,10 @@ public class MainController {
 
         return "pages/home";
     }
+
+    @GetMapping("/menu")
+    public String MenuPage() {
+
+        return "pages/menu";
+    }
 }
