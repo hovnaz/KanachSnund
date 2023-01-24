@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <body>
-<th:block th:fragment="headerFullScreenSlider">
+  <th:block th:fragment="headerFullScreenSlider">
     <!-- START sliderfull REVOLUTION SLIDER 6.6.5 --><p class="rs-p-wp-fix"></p>
     <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery"
                     style="visibility:hidden;background:#212121;padding:0;background-image:url(wp-content/uploads/slider_pattern-1.png);background-repeat:repeat;background-size:contain;background-position:left top;">
@@ -21,7 +21,7 @@
                               style="z-index:6;font-family:'Cabin Condensed';text-transform:uppercase;">
                         <div class="header-span-txt-block">
                             Կանաչ Սնունդ
-                            <span class="header-span-txt">Ընկերությունը հիմնադրվել է 2017թ.-ին։</span>
+                            <span class="header-span-txt">Ընկերությունը հիմնադրվել է 2017թ.-ին։ <span th:text="#{title}"></span></span>
                         </div>
                     </rs-layer>
                 </rs-slide>
