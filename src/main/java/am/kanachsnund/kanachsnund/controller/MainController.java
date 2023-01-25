@@ -13,4 +13,10 @@ public class MainController {
         modelMap.addAttribute(String.valueOf(MenuState.x), "productMenuList");
         return "pages/home";
     }
+
+    @GetMapping("/menu")
+    public String MenuPage() {
+
+        return "pages/menu";
+    }
 }

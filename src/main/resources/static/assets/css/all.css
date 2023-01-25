@@ -824,7 +824,7 @@ body.layout-frame {
 
 .page-id-8104 .page-header, .page-id-8104 .page-header .parallax-container, .page-id-8104 .page-header .fixed-container {
     background-color: #212121;
-    background-image: url(../../assets/content/uploads/slider-1-1.jpg);
+    background-image: url(../../resource/bg.jpg);
     background-repeat: no-repeat;
     background-attachment: scroll;
     -webkit-background-size: cover;
