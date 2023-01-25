@@ -12,10 +12,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product")
 public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
-    private String description;
+    private String titleUs;
+    private String titleRu;
+    private String titleHy;
+    private String descriptionUs;
+    private String descriptionRu;
+    private String descriptionHy;
     private String image;
 }

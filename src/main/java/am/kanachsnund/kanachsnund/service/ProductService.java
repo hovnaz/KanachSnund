@@ -5,6 +5,7 @@ import am.kanachsnund.kanachsnund.model.Product;
 import java.util.List;
 
 public interface ProductService {
+
     List<Product> findAllProduct();
 
     void addProduct(Product product);
@@ -12,4 +13,6 @@ public interface ProductService {
     Product update(Product product);
 
     void deleteById(int id);
+
+    void findProductByLanguage();
 }
