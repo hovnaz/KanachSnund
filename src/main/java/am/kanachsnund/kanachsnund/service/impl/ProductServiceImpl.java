@@ -19,20 +19,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void addProduct(Product product) {
-        productRepository.save(product);
-    }
-
-    @Override
-    public Product update(Product product) {
-        product.setTitle(product.getTitle());
-        product.setDescription(product.getDescription());
-        return productRepository.save(product);
-    }
-
-    @Override
-    public void deleteById(int id) {
-        productRepository.deleteById(id);
+    public List<ProductResponse> findAllByIdAndProductByLanguage(String language) {
+        List<Product> productList = productRepository.findAll();
+        return productList.stream().map(val -> productConvertToResponse(val, language.toLowerCase())).collect(Collectors.toList());
     }
 
 }

@@ -77,3 +77,21 @@ button:hover {
     padding: 8px 16px;
     border-radius: 5px;
 }
+
+.menu_product{
+    border: 2px solid red;
+    display: flex;
+    margin: 10px;
+}
+
+.menu_product>img{
+    max-width: 410px;
+    max-height: 420px;
+}
+
+.menu_container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}

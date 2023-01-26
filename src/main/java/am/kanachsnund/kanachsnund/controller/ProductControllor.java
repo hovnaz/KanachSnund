@@ -15,57 +15,47 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/product")
+@RequestMapping("/admin/product")
 public class ProductControllor {
-    private final ProductService productService;
-    @Value("${kanachsnund.images.folder}")
-    private String folderPathImage;
 
-    @GetMapping()
-    public String getAllProduct(ModelMap modelMap){
-        List<Product> allProduct = productService.findAllProduct();
-        modelMap.addAttribute("products", allProduct);
-        return "tmpIndex";
-    }
-
-    @GetMapping("/add")
-    public String addProductPage(){
-        return "addProduct";
-    }
-
-    @PostMapping("/add")
-    public String addProduct(@ModelAttribute Product product, @RequestParam("productImage") MultipartFile file) throws IOException {
-        if(file.isEmpty()){
-            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File newFile = new File(folderPathImage + File.separator + fileName);
-            file.transferTo(newFile);
-            product.setImage(fileName);
-        }
-        productService.addProduct(product);
-        return "redirect:/product";
-    }
-
-    @GetMapping("/getImage")
-    public @ResponseBody byte[] getImage(@RequestParam("fileImage") String fileName) throws IOException {
-        InputStream inputStream = new FileInputStream(folderPathImage + File.separator + fileName);
-        return IOUtils.toByteArray(inputStream);
-    }
-//editing
-//    @PostMapping("/update")
-//    public String updateProduct(@RequestParam Product product){
-//        productService.update(product);
-//        return
+//    @Value("${kanachsnund.images.folder}")
+//    private String productImages;
+//    private final ProductService productService;
+//
+//    @GetMapping()
+//    public String getAllProduct(ModelMap modelMap){
+//        List<Product> allProduct = productService.findAllProduct();
+//        modelMap.addAttribute("products", allProduct);
+//        return "tmpIndex";
 //    }
-
-    @GetMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable("id") int id){
-        productService.deleteById(id);
-        return "redirect:/product";
-    }
-
-
-
-
-
+//
+//    @GetMapping("/add")
+//    public String addProductPage(){
+//        return "addProduct";
+//    }
+//
+//    @PostMapping("/add")
+//    public String addProduct(@ModelAttribute Product product){
+//        productService.addProduct(product);
+//        return "redirect:/product";
+//    }
+//
+//    @GetMapping("/getImage")
+//    public @ResponseBody byte[] getImage(@RequestParam("fileImage") String fileName) throws IOException {
+//        InputStream inputStream = new FileInputStream(productImages + File.separator + fileName);
+//        return IOUtils.toByteArray(inputStream);
+//    }
+////editing
+////    @PostMapping("/update")
+////    public String updateProduct(@RequestParam Product product){
+////        productService.update(product);
+////        return
+////    }
+//
+//    @GetMapping("/delete/{id}")
+//    public String deleteProduct(@PathVariable("id") int id){
+//        productService.deleteById(id);
+//        return "redirect:/product";
+//    }
 
 }
