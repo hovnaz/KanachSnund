@@ -269,19 +269,19 @@
                     </div>
                     <div class="et-mailchimp-wrapper center-false" style="margin-top: 70px">
                         <div id="et-mailchimp-1" class="et-mailchimp">
-                            <form action="https://enovathemes.us12.list-manage.com/subscribe/post?u=f51d66947abf83c3737f089cc&amp;id=950c8576e9"
+                            <form th:action="@{/comment}"
                                   method="post" id="mc-embedded-subscribe-form"
                                   name="mc-embedded-subscribe-form" class="validate"
-                                  target="_blank" novalidate="">
+                                  novalidate="">
                                 <div class="input-wrap">
-                                    <input type="text" value="" name="EMAIL" class="email"
+                                    <input type="text" value="" name="email" class="email"
                                            required=""
                                            data-placeholder="Մուտքագրեք ձեր email-ը">
-                                    <textarea placeholder="Ձեր կարցիքը"></textarea>
+                                    <textarea name="comment" placeholder="Ձեր կարցիքը"></textarea>
                                     <span class="after"></span>
                                 </div>
 
-                                <button type="submit" name="Բաժանորդագրվել"
+                                <button onclick="document.getElementById('mc-embedded-subscribe-form').submit();" type="submit" name="Բաժանորդագրվել"
                                         id="mc-embedded-subscribe">ՈՒղարկել
                                 </button>
                                 <input type="hidden"
