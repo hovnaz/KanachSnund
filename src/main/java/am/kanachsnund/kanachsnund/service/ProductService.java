@@ -1,8 +1,11 @@
 package am.kanachsnund.kanachsnund.service;
 
+import am.kanachsnund.kanachsnund.dto.ProductResponse;
+import am.kanachsnund.kanachsnund.model.Language;
 import am.kanachsnund.kanachsnund.model.Product;
 
 import java.util.List;
+import java.util.Locale;
 
 public interface ProductService {
 
@@ -14,5 +17,5 @@ public interface ProductService {
 //
 //    void deleteById(int id);
 
-    void findProductByLanguage();
+    List<ProductResponse> findAllByIdAndProductByLanguage(String language);
 }
