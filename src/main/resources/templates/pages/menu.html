@@ -16,19 +16,24 @@
     <!-- wrap start -->
     <div id="wrap" data-navigation="default" data-sidebar-pos="left">
         <th:block th:insert="fragments/layout::header"></th:block>
-        <div class="page-content-wrap sticky-status-true">
+        <div class="page-content-wrap sticky-status-true"   >
             <th:block th:insert="fragments/lazy::headerFullScreenSliderSmall"></th:block>
 
             <!-- content start -->
-            <div id="et-content" class='content et-clearfix'>
+<!--            <div id="et-content" class='content et-clearfix'>-->
                 <!-- post start -->
-                <div class="post-8104 page type-page status-publish hentry">
-                    <div class="page-content et-clearfix">
-                        <section class="wpb-content-wrapper">
-                            <th:block th:insert="fragments/parts::menuFragment"></th:block>
-                        </section>
+<!--                <div class="post-8104 page type-page status-publish hentry">-->
+<!--                    <div class="page-content et-clearfix">-->
+<!--                        <th:block th:insert="fragments/parts::menuFragment"></th:block>-->
+            <div class="menu_container">
+                    <div class="menu_product" th:each="product: ${products}" style="width: 800px;">
+                        <p th:text="${product.titleHy}"></p>
+                        <span th:text="${product.getDescriptionHy()}"></span>
+                        <img th:src="@{/getImage(fileImage=${product.image})}" alt="">
                     </div>
                 </div>
+<!--                    </div>-->
+<!--                </div>-->
                 <!-- post end -->
             </div>
             <!-- content end -->

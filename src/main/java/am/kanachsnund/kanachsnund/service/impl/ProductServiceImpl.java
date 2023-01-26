@@ -14,6 +14,11 @@ public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
 
     @Override
+    public List<Product> findAllProduct() {
+        return productRepository.findAll();
+    }
+
+    @Override
     public List<ProductResponse> findAllByIdAndProductByLanguage(String language) {
         List<Product> productList = productRepository.findAll();
         return productList.stream().map(val -> productConvertToResponse(val, language.toLowerCase())).collect(Collectors.toList());
