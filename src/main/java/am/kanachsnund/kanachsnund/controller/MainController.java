@@ -14,11 +14,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Locale;
+
 @Controller
+@RequiredArgsConstructor
 public class MainController {
 
     @Value("${kanachsnund.images.folder}")
     private String productImages;
+
+    private final ProductService productService;
 
     @GetMapping
     public String mainPage(ModelMap modelMap) {
