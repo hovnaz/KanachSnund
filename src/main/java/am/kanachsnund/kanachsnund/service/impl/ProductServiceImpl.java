@@ -1,7 +1,6 @@
 package am.kanachsnund.kanachsnund.service.impl;
 
 import am.kanachsnund.kanachsnund.dto.ProductResponse;
-import am.kanachsnund.kanachsnund.model.Language;
 import am.kanachsnund.kanachsnund.model.Product;
 import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
@@ -9,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Service

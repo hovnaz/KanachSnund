@@ -16,27 +16,49 @@
     <!-- wrap start -->
     <div id="wrap" data-navigation="default" data-sidebar-pos="left">
         <th:block th:insert="fragments/layout::header"></th:block>
-        <div class="page-content-wrap sticky-status-true"   >
-            <th:block th:insert="fragments/lazy::headerFullScreenSliderSmall"></th:block>
+        <div class="page-content-wrap sticky-status-true">
+            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue='Menu')"></th:block>
 
-            <!-- content start -->
-<!--            <div id="et-content" class='content et-clearfix'>-->
-                <!-- post start -->
-<!--                <div class="post-8104 page type-page status-publish hentry">-->
-<!--                    <div class="page-content et-clearfix">-->
-<!--                        <th:block th:insert="fragments/parts::menuFragment"></th:block>-->
-            <div class="menu_container">
-                    <div class="menu_product" th:each="product: ${products}" style="width: 800px;">
-                        <p th:text="${product.titleHy}"></p>
-                        <span th:text="${product.getDescriptionHy()}"></span>
-                        <img th:src="@{/getImage(fileImage=${product.image})}" alt="">
+            <section class="wpb-content-wrapper">
+                <div class="vc_row wpb_row vc_row-fluid vc_column-gap-24 vc-container">
+                    <th:block th:insert="fragments/util::decoration"></th:block>
+                    <div data-animation-delay="0" class="wpb_column vc_column_container vc_col-sm-12">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
+                                <div class="recent-menus-layout menu-layout lazy-load grid menu-container-boxed post-size-medium gridify filter-true">
+                                    <div data-columns="4"
+                                         class="loop-posts loop-menu gridify recent-menus effect-none filter-true et-item-set et-clearfix menu-page-container">
+                                        <article class="et-item post menu block relative"
+                                                 th:each="product: ${productMenuList}">
+                                            <div class="post-inner et-item-inner et-clearfix highlight-false">
+                                                <div class="post-image overlay-hover post-media">
+                                                    <div class="image-preloader"></div>
+                                                    <img width="588" height="588"
+                                                         th:src="${product.image}"
+                                                         class="attachment-goodresto_588X588 size-goodresto_588X588 wp-post-image"
+                                                         loading="lazy">
+                                                </div>
+                                                <div class="post-body et-clearfix">
+                                                    <div class="post-body-inner-wrap">
+                                                        <div class="post-body-inner"><h4 class="post-title et-clearfix">
+                                                            <span class="menu-title-inline"
+                                                                  th:text="${product.title}"></span></h4>
+                                                            <div class="menu-ingredients"
+                                                                 th:text="${product.description}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-<!--                    </div>-->
-<!--                </div>-->
-                <!-- post end -->
-            </div>
-            <!-- content end -->
+            </section>
+
             <th:block th:insert="fragments/layout::footer"></th:block>
         </div>
     </div>

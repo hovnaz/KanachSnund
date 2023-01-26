@@ -1,7 +1,6 @@
 package am.kanachsnund.kanachsnund.service;
 
 import am.kanachsnund.kanachsnund.dto.ProductResponse;
-import am.kanachsnund.kanachsnund.model.Language;
 import am.kanachsnund.kanachsnund.model.Product;
 
 import java.util.List;

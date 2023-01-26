@@ -78,20 +78,34 @@ button:hover {
     border-radius: 5px;
 }
 
-.menu_product{
+.menu_product {
     border: 2px solid red;
     display: flex;
     margin: 10px;
 }
 
-.menu_product>img{
+.menu_product > img {
     max-width: 410px;
     max-height: 420px;
 }
 
-.menu_container{
+.menu_container {
     margin-top: 50px;
     margin-bottom: 50px;
     display: flex;
     justify-content: center;
+}
+
+.block {
+    display: block !important;
+}
+
+.relative {
+    position: relative !important;
+}
+
+.menu-page-container {
+    height: auto !important;
+    display: flex;
+    flex-wrap: wrap;
 }

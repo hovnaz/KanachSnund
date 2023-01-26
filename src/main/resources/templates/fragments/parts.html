@@ -47,7 +47,6 @@
     </div>
 </th:block>
 
-
 <th:block th:fragment="imageGrid">
     <!--                         images plus       -->
     <div class="vc_row wpb_row vc_row-fluid vc_custom_1525260110299 vc_row-has-fill vc_column-gap-24">
@@ -75,7 +74,7 @@
                                  class="plain-gallery loop-gallery gallery-type-grid effect-type-sequential effect-moveUp overlay-fade-zoom et-item-set et-clearfix"
                                  style="position: relative; height: 1224px;">
                                 <div class="et-item gallery"
-                                     style="position: absolute; left: 0px; top: px;">
+                                     style="position: absolute;">
                                     <div class="et-item-inner et-clearfix animate">
                                         <div class="overlay-hover">
                                             <div class="image-container"><img width="588"
@@ -218,22 +217,21 @@
                                         class="et-item post menu all appetizers post-10838 type-menu status-publish has-post-thumbnail hentry menu-category-appetizers"
                                         data-width="60" th:each="product: ${productMenuList}">
                                     <div class="post-inner et-item-inner et-clearfix highlight-false">
-<!--                                        <div class="post-image overlay-hover post-media">-->
-<!--                                            <div class="image-preloader"></div>-->
-<!--                                            <img width="588" height="588"-->
-<!--                                                 src="../../resource/menu/5.png"-->
-<!--                                                 class="attachment-goodresto_588X588 size-goodresto_588X588 wp-post-image"-->
-<!--                                                 alt="Vitello tonnato" decoding="async"-->
-<!--                                                 data-responsive-images="false">-->
-<!--                                        </div>-->
+                                        <div class="post-image overlay-hover post-media">
+                                            <div class="image-preloader"></div>
+                                            <img width="588" height="588"
+                                                 th:src="${product.image}"
+                                                 class="attachment-goodresto_588X588 size-goodresto_588X588 wp-post-image"
+                                                 alt="Vitello tonnato" decoding="async"
+                                                 data-responsive-images="false">
+                                        </div>
                                         <div class="post-body et-clearfix">
                                             <div class="post-body-inner-wrap">
                                                 <div class="post-body-inner">
                                                     <h4 class="post-title et-clearfix">
                                                         <span class="menu-title-inline" th:text="${product.title}"></span>
                                                     </h4>
-                                                    <div class="menu-ingredients">Պահ. Ժամկետը՝
-                                                        1 տարի։
+                                                    <div class="menu-ingredients" th:text="${product.description}">
                                                     </div>
                                                 </div>
                                             </div>

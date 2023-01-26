@@ -20,26 +20,26 @@ public class ProductControllor {
 
 //    @Value("${kanachsnund.images.folder}")
 //    private String productImages;
-//    private final ProductService productService;
-//
-//    @GetMapping()
-//    public String getAllProduct(ModelMap modelMap){
-//        List<Product> allProduct = productService.findAllProduct();
-//        modelMap.addAttribute("products", allProduct);
-//        return "tmpIndex";
-//    }
-//
-//    @GetMapping("/add")
-//    public String addProductPage(){
-//        return "addProduct";
-//    }
-//
+    private final ProductService productService;
+
+    @GetMapping()
+    public String getAllProduct(ModelMap modelMap){
+        List<Product> allProduct = productService.findAllProduct();
+        modelMap.addAttribute("products", allProduct);
+        return "tmpIndex";
+    }
+
+    @GetMapping("/add")
+    public String addProductPage(){
+        return "addProduct";
+    }
+
 //    @PostMapping("/add")
 //    public String addProduct(@ModelAttribute Product product){
 //        productService.addProduct(product);
 //        return "redirect:/product";
 //    }
-//
+
 //    @GetMapping("/getImage")
 //    public @ResponseBody byte[] getImage(@RequestParam("fileImage") String fileName) throws IOException {
 //        InputStream inputStream = new FileInputStream(productImages + File.separator + fileName);
