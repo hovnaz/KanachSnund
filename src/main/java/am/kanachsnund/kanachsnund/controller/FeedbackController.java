@@ -19,6 +19,9 @@ import javax.validation.Valid;
 public class FeedbackController {
 
     private final FeedbackService feedbackService;
+    private final ContactRepository contactRepository;
+    private final ContactMapper contactMapper;
+    private final FeedbackMapper feedbackMapper;
 
     @PostMapping("/feedback")
     public String addProductComment(@Valid @ModelAttribute FeedbackRequest feedbackRequest) {
