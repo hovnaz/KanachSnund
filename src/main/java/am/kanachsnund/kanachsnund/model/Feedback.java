@@ -22,6 +22,5 @@ public class Comment {
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     @NotEmpty(message = "Email cannot be empty")
     private String email;
-    @Size(min = 5, max = 255)
     private String comment;
 }

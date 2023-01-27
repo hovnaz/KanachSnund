@@ -8,7 +8,7 @@
                 <div class="header-logo-area">
                     <div class="container">
                         <div class="logo logo-desk">
-                            <a href="../index.htm" title="Goodresto">
+                            <a href="/" title="Goodresto">
                                 <img class="mobile-logo" style="max-width:167px;max-height:60px;"
                                      src="../../resource/Spitak.png" alt="Goodresto">
                             </a>
@@ -27,7 +27,7 @@
             <div class="header-body">
                 <div class="container et-clearfix">
                     <div class="logo logo-desk">
-                        <a href="../index.htm" title="Goodresto">
+                        <a href="/" title="Goodresto">
                             <img class="normal-logo" style="max-width:250px;max-height:80px"
                                  src="../../resource/Spitak.png" alt="Goodresto">
                             <img class="sticky-logo"
@@ -39,25 +39,33 @@
                     <nav class="header-menu desk-menu et-clearfix">
                         <ul id="header-menu" class="menu">
                             <li
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children"
+                                    th:class="${#request.getRequestURI().equals('/')} ?
+                                     'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children':
+                                    'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'"
                                     data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a
                                     href="/"><span
                                     class="txt">Գլխավոր էջ</span><span class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"
+                                    th:class="${#request.getRequestURI().equals('/about-us')} ?
+                                     'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children':
+                                    'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/about-us"><span
                                     class="txt">Մեր մասին</span><span
                                     class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"
+                                    th:class="${#request.getRequestURI().equals('/menu')} ?
+                                     'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children':
+                                    'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/menu"><span
                                     class="txt">Մենյու</span><span
                                     class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
-                                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"
+                                    th:class="${#request.getRequestURI().equals('/contact-us')} ?
+                                     'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children':
+                                    'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/contact-us"><span
                                     class="txt">Կապ մեզ հետ</span><span
                                     class="mi et-icon-arrow-down"></span></a>

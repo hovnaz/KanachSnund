@@ -243,7 +243,7 @@
                     </div>
                 </div>
                 <span class="et-gap et-clearfix " style="height:56px">&nbsp;</span>
-                <button type="submit" name="Բաժանորդագրվել">Տեսնել Ավելին</button>
+                <button type="submit" name="Բաժանորդագրվել" th:onclick="|window.location.href='/menu'|">Տեսնել Ավելին</button>
             </div>
         </div>
 
@@ -275,6 +275,7 @@
                                     <input type="text" value="" name="email" class="email"
                                            required=""
                                            data-placeholder="Մուտքագրեք ձեր email-ը">
+                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>
                                     <textarea name="comment" placeholder="Ձեր կարցիքը"></textarea>
                                     <span class="after"></span>
                                 </div>
