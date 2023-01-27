@@ -11,13 +11,11 @@ import org.springframework.stereotype.Service;
 public class CommentServiceImpl implements CommentService {
 
     private final CommentRepository commentRepository;
+    private final FeedbackMapper feedbackMapper;
 
     @Override
-    public void saveComment(String email, String comment) {
-        Comment commentPeople = Comment.builder()
-                .comment(comment)
-                .email(email)
-                .build();
-        commentRepository.save(commentPeople);
+    public void save(FeedbackRequest feedbackRequest) {
+        Feedback feedback = feedbackMapper.toEntity(feedbackRequest);
+        commentRepository.save(feedback);
     }
 }
