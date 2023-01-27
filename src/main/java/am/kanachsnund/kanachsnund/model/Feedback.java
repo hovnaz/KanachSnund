@@ -15,12 +15,11 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "comment")
 @Builder
-public class Comment {
+public class Feedback {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
-    @NotEmpty(message = "Email cannot be empty")
     private String email;
     private String comment;
 }
