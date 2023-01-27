@@ -1,4 +1,4 @@
-package am.kanachsnund.kanachsnund.model;
+package am.kanachsnund.kanachsnund.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

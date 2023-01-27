@@ -1,9 +1,9 @@
 package am.kanachsnund.kanachsnund.mapper;
 
-import am.kanachsnund.kanachsnund.dto.FeedbackRequest;
-import am.kanachsnund.kanachsnund.dto.FeedbackResponse;
+import am.kanachsnund.kanachsnund.dto.request.FeedbackRequest;
+import am.kanachsnund.kanachsnund.dto.response.FeedbackResponse;
 import am.kanachsnund.kanachsnund.mapper.base.BaseMapper;
-import am.kanachsnund.kanachsnund.model.Feedback;
+import am.kanachsnund.kanachsnund.entity.Feedback;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

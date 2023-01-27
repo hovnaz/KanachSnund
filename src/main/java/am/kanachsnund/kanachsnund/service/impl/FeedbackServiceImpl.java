@@ -1,8 +1,8 @@
 package am.kanachsnund.kanachsnund.service.impl;
 
-import am.kanachsnund.kanachsnund.dto.FeedbackRequest;
+import am.kanachsnund.kanachsnund.dto.request.FeedbackRequest;
 import am.kanachsnund.kanachsnund.mapper.FeedbackMapper;
-import am.kanachsnund.kanachsnund.model.Feedback;
+import am.kanachsnund.kanachsnund.entity.Feedback;
 import am.kanachsnund.kanachsnund.repository.CommentRepository;
 import am.kanachsnund.kanachsnund.service.FeedbackService;
 import lombok.RequiredArgsConstructor;

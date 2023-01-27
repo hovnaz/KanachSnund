@@ -1,6 +1,6 @@
 package am.kanachsnund.kanachsnund.service;
 
-import am.kanachsnund.kanachsnund.dto.FeedbackRequest;
+import am.kanachsnund.kanachsnund.dto.request.FeedbackRequest;
 
 public interface FeedbackService {
 

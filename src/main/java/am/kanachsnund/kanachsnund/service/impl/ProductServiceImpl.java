@@ -1,7 +1,9 @@
 package am.kanachsnund.kanachsnund.service.impl;
 
-import am.kanachsnund.kanachsnund.dto.ProductResponse;
-import am.kanachsnund.kanachsnund.model.Product;
+import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
+import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
+import am.kanachsnund.kanachsnund.entity.Product;
+import am.kanachsnund.kanachsnund.mapper.ProductCrudMapper;
 import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +17,32 @@ import java.util.stream.Collectors;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductCrudMapper productCrudMapper;
 
     @Override
     public List<Product> findAllProduct() {
         return productRepository.findAll();
+    }
+
+    @Override
+    public void save(ProductCrudRequest productRequest) {
+        Product product = productCrudMapper.toEntity(productRequest);
+        productRepository.save(product);
+    }
+
+    @Override
+    public void update(int id, ProductCrudRequest productRequest) {
+        boolean existsById = productRepository.existsById(id);
+        if (existsById) {
+            Product product = productCrudMapper.toEntity(productRequest);
+            productRepository.save(product);
+        }
+
+    }
+
+    @Override
+    public void deleteById(int id) {
+        productRepository.deleteById(id);
     }
 
     @Override

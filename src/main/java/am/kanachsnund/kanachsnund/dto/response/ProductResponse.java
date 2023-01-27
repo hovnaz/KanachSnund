@@ -1,4 +1,4 @@
-package am.kanachsnund.kanachsnund.dto;
+package am.kanachsnund.kanachsnund.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

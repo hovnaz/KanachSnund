@@ -267,16 +267,15 @@
                     </div>
                     <div class="et-mailchimp-wrapper center-false" style="margin-top: 70px">
                         <div id="et-mailchimp-1" class="et-mailchimp">
-                            <form th:action="@{/comment}"
-                                  method="post" id="mc-embedded-subscribe-form"
-                                  name="mc-embedded-subscribe-form" class="validate"
+                            <form action="/feedback"
+                                  method="post" id="mc-embedded-subscribe-form" class="validate"
                                   novalidate="">`
                                 <div class="input-wrap">
                                     <input type="text" value="" name="email" class="email"
                                            required=""
                                            data-placeholder="Մուտքագրեք ձեր email-ը">
-                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>
-                                    <textarea name="comment" placeholder="Ձեր կարցիքը"></textarea>
+<!--                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>-->
+                                    <textarea name="message" placeholder="Ձեր կարցիքը"></textarea>
                                     <span class="after"></span>
                                 </div>
 

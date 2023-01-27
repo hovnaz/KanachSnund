@@ -1,4 +1,4 @@
-package am.kanachsnund.kanachsnund.dto;
+package am.kanachsnund.kanachsnund.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +13,11 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class FeedbackResponse {
+public class FeedbackRequest {
 
+    @Email
     private String email;
+    @NotBlank
+    @Size(min = 4, max = 255)
     private String message;
 }

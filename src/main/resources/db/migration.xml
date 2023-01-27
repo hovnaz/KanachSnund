@@ -17,7 +17,7 @@
     <changeSet id="1674710530340-2" author="Admin (generated)">
         <createTable tableName="product">
             <column autoIncrement="true" name="id" type="INT">
-                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_product"/>
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_prodfbtvgrfcuct"/>
             </column>
             <column name="title_us" type="VARCHAR(255)"/>
             <column name="title_ru" type="VARCHAR(255)"/>

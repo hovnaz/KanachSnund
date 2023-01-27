@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        thead tr {
+            background-color: #eee;
+        }
+
+        thead td {
+            color: #333;
+            font-size: 16px;
+            padding: 8px 16px;
+            max-width: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        tbody img {
+            width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<th:block th:insert="pages/admin/fragments::header"></th:block>
+<table>
+    <thead>
+    <td>Name</td>
+    <td>Email</td>
+    <td>Message</td>
+    </thead>
+    <tbody>
+    <tr th:each="contact: ${contacts}">
+        <td th:text="${contact.name}"></td>
+        <td th:text="${contact.email}"></td>
+        <td th:text="${contact.message}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

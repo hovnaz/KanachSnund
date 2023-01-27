@@ -1,9 +1,8 @@
 package am.kanachsnund.kanachsnund.controller;
 
-import am.kanachsnund.kanachsnund.dto.ProductResponse;
+import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
 import am.kanachsnund.kanachsnund.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,12 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MainController {
 
-    @Value("${kanachsnund.images.folder}")
-    private String productImages;
-
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping("/")
     public String mainPage(ModelMap modelMap) {
         List<ProductResponse> productList = productService.findAllByIdAndProductByLanguage(LocaleContextHolder.getLocale().getLanguage());
         modelMap.addAttribute("productMenuList", productList);
