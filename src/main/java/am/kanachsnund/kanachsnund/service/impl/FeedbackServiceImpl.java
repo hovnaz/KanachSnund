@@ -1,14 +1,16 @@
 package am.kanachsnund.kanachsnund.service.impl;
 
-import am.kanachsnund.kanachsnund.model.Comment;
+import am.kanachsnund.kanachsnund.dto.FeedbackRequest;
+import am.kanachsnund.kanachsnund.mapper.FeedbackMapper;
+import am.kanachsnund.kanachsnund.model.Feedback;
 import am.kanachsnund.kanachsnund.repository.CommentRepository;
-import am.kanachsnund.kanachsnund.service.CommentService;
+import am.kanachsnund.kanachsnund.service.FeedbackService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class CommentServiceImpl implements CommentService {
+public class FeedbackServiceImpl implements FeedbackService {
 
     private final CommentRepository commentRepository;
     private final FeedbackMapper feedbackMapper;
