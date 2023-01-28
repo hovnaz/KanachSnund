@@ -17,29 +17,29 @@
     <div id="wrap" data-navigation="default" data-sidebar-pos="left">
         <th:block th:insert="fragments/layout::header"></th:block>
         <div class="page-content-wrap sticky-status-true">
-            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue='Contact Us')"></th:block>
+            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue=#{menu.contact})"></th:block>
             <div class="vc_row wpb_row vc_row-fluid vc_custom_1525436185699 vc_column-gap-64 vc-container">
                 <div data-animation-delay="0"
                      class="et-custom-contact-form wpb_column vc_column_container vc_col-sm-12 vc_col-lg-8 vc_col-md-8 vc_col-xs-12">
                     <div class="vc_column-inner ">
                         <div class="wpb_wrapper"><h6 style="color: #407e43 ;text-align: left"
-                                                     class="vc_custom_heading et-custom-title vc_custom_1525435977360">
-                            COME AND SEE US</h6>
+                                                     class="vc_custom_heading et-custom-title vc_custom_1525435977360" th:text="#{menu.contact}">
+                            </h6>
                             <div class="wpb_text_column wpb_content_element  et-custom-slogan">
                                 <div class="wpb_wrapper">
-                                    <p style="text-align: left;">Make your reservation at GoodResto</p>
+                                    <p style="text-align: left;" th:text="#{send.contact}"></p>
                                 </div>
                             </div>
 
-                            <div class="wpb_text_column wpb_content_element ">
-                                <div class="wpb_wrapper">
-                                    <p style="text-align: left;">We offer the right place and the right ambience to
-                                        leave your daily routine behind and enjoy life together with your friends and
-                                        family. Reserve a table for yourself and your beloved ones and let us take you
-                                        on a culinary journey. Just give us a call during our opening hours.</p>
+<!--                            <div class="wpb_text_column wpb_content_element ">-->
+<!--                                <div class="wpb_wrapper">-->
+<!--                                    <p style="text-align: left;">We offer the right place and the right ambience to-->
+<!--                                        leave your daily routine behind and enjoy life together with your friends and-->
+<!--                                        family. Reserve a table for yourself and your beloved ones and let us take you-->
+<!--                                        on a culinary journey. Just give us a call during our opening hours.</p>-->
 
-                                </div>
-                            </div>
+<!--                                </div>-->
+<!--                            </div>-->
                             <div role="form" class="wpcf7" id="wpcf7-f10574-p8112-o1" lang="en-US" dir="ltr">
                                 <div class="screen-reader-response"><p role="status" aria-live="polite"
                                                                        aria-atomic="true"></p>
@@ -50,18 +50,18 @@
                                         <span class="wpcf7-form-control-wrap" data-name="your-name">
                                         <input type="text" name="name" size="40"
                                                class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                               placeholder="Your name"></span><span class="wpcf7-form-control-wrap">
+                                               th:placeholder="#{user.name}"></span><span class="wpcf7-form-control-wrap">
                                         <input type="email" name="email" size="40"
                                                class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-                                               placeholder="Your email"></span><span
+                                               th:placeholder="#{user.email}"></span><span
                                             class="wpcf7-form-control-wrap">
                                     </span>
                                         <span
                                                 class="wpcf7-form-control-wrap" data-name="your-message">
                                         <textarea name="message" cols="40" rows="10"
-                                                  class="wpcf7-form-control wpcf7-textarea"></textarea>
+                                                  class="wpcf7-form-control wpcf7-textarea" th:placeholder="#{send.message}"></textarea>
                                     </span>
-                                        <input type="submit" value="Send message"
+                                        <input type="submit" th:value="#{opinion.send}"
                                                class="wpcf7-form-control has-spinner wpcf7-submit">
                                         <span class="wpcf7-spinner"></span></p>
                                     <div class="wpcf7-response-output" aria-hidden="true"></div>
@@ -74,38 +74,33 @@
                      class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
                     <div class="vc_column-inner ">
                         <div class="wpb_wrapper"><h6 style="color: #407e43 ;text-align: left"
-                                                     class="vc_custom_heading et-custom-title vc_custom_1525436102294">
-                            WORKING HOURS</h6><span class="et-gap et-clearfix " style="height:8px">&nbsp;</span>
+                                                     class="vc_custom_heading et-custom-title vc_custom_1525436102294" th:text="#{working.time}">
+                            </h6><span class="et-gap et-clearfix " style="height:8px">&nbsp;</span>
                             <div class="wpb_text_column wpb_content_element ">
                                 <div class="wpb_wrapper">
-                                    <p style="text-align: left;">Weekdays<span class="et-gap-inline et-clearfix "
-                                                                               style="width:16px">&nbsp;</span>10.00 am
-                                        – 10.30 pm<br>
-                                        Weekend<span class="et-gap-inline et-clearfix " style="width:16px">&nbsp;</span>09.00
-                                        am – 11.00 pm</p>
+                                    <p style="text-align: left;"><span class="et-gap-inline et-clearfix "
+                                                                               style="width:16px">&nbsp;</span>10.00
+                                        – 18.00
+                                </div>
+                            </div>
+                            <span class="et-gap et-clearfix " style="height:32px">&nbsp;</span><h6
+                                    style="color: #407e43 ;text-align: left"
+                                    class="vc_custom_heading et-custom-title vc_custom_1525436111293" th:text="#{comp.address}"></h6><span
+                                    class="et-gap et-clearfix " style="height:8px">&nbsp;</span>
+                            <div class="wpb_text_column wpb_content_element ">
+                                <div class="wpb_wrapper">
+                                    <p style="text-align: left;" th:text="#{company.address}"></p>
 
                                 </div>
                             </div>
                             <span class="et-gap et-clearfix " style="height:32px">&nbsp;</span><h6
                                     style="color: #407e43 ;text-align: left"
-                                    class="vc_custom_heading et-custom-title vc_custom_1525436111293">FIND US</h6><span
+                                    class="vc_custom_heading et-custom-title vc_custom_1525436119530" th:text="#{menu.contact}"></h6><span
                                     class="et-gap et-clearfix " style="height:8px">&nbsp;</span>
                             <div class="wpb_text_column wpb_content_element ">
                                 <div class="wpb_wrapper">
-                                    <p style="text-align: left;">2167 Frederick Douglass Blvd<br>
-                                        212.874.6080 / Harlem, NY</p>
-
-                                </div>
-                            </div>
-                            <span class="et-gap et-clearfix " style="height:32px">&nbsp;</span><h6
-                                    style="color: #407e43 ;text-align: left"
-                                    class="vc_custom_heading et-custom-title vc_custom_1525436119530">CONTACTS</h6><span
-                                    class="et-gap et-clearfix " style="height:8px">&nbsp;</span>
-                            <div class="wpb_text_column wpb_content_element ">
-                                <div class="wpb_wrapper">
-                                    <p style="text-align: left;">Tel: 423.266.1121<br>
-                                        Email: sales@goodresto.com</p>
-
+                                    <p style="text-align: left;" th:text="#{user.phone}">
+                                        </p>
                                 </div>
                             </div>
                         </div>

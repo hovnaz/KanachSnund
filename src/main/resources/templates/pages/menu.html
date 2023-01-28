@@ -17,7 +17,7 @@
     <div id="wrap" data-navigation="default" data-sidebar-pos="left">
         <th:block th:insert="fragments/layout::header"></th:block>
         <div class="page-content-wrap sticky-status-true">
-            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue='Menu')"></th:block>
+            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue=#{menu.menu})"></th:block>
 
             <section class="wpb-content-wrapper">
                 <div class="vc_row wpb_row vc_row-fluid vc_column-gap-24 vc-container">

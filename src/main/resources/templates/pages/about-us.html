@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=8">
     <!-- LINK TAGS -->
-    <title>Kanach Aygi</title>
+    <title>Kanach Snund</title>
     <th:block th:insert="fragments/import::header"></th:block>
 </head>
 <body class="page-template page-template-page-vc page-template-page-vc-php page page-id-8104 wp-embed-responsive theme-goodresto woocommerce-no-js enovathemes preloader-active loading-active custom-scroll-false layout-wide sidebar-align-right button-size-medium  blank-false wpb-js-composer js-comp-ver-6.10.0 vc_responsive">
@@ -17,7 +17,7 @@
     <div id="wrap" data-navigation="default" data-sidebar-pos="left">
         <th:block th:insert="fragments/layout::header"></th:block>
         <div class="page-content-wrap sticky-status-true">
-            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue='About Us')"></th:block>
+            <th:block th:replace="fragments/lazy::headerFullScreenSliderSmall(titleValue=#{menu.about})"></th:block>
             <section class="wpb-content-wrapper">
                 <th:block th:insert="fragments/util::decoration"></th:block>
                 <div class="vc_row wpb_row vc_row-fluid vc_custom_1525258440365 vc_column-gap-24 vc-container">
@@ -31,22 +31,18 @@
                          class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-8 vc_col-md-8 vc_col-xs-12">
                         <div class="vc_column-inner ">
                             <div class="wpb_wrapper"><h6 style="color: #407e43 ;text-align: center"
-                                                         class="vc_custom_heading et-custom-title vc_custom_1525433858051">
-                                COME AND SEE US</h6>
+                                                         class="vc_custom_heading et-custom-title vc_custom_1525433858051" th:text="#{header.name}"`>
+                                </h6>
                                 <div class="wpb_text_column wpb_content_element  et-custom-slogan">
                                     <div class="wpb_wrapper">
-                                        <p style="text-align: center;">Make your reservation at GoodResto</p>
+                                        <p style="text-align: center;" th:text="#{header.info}"></p>
 
                                     </div>
                                 </div>
 
                                 <div class="wpb_text_column wpb_content_element ">
                                     <div class="wpb_wrapper">
-                                        <p style="text-align: center;">We offer the right place and the right ambience
-                                            to leave your daily routine behind and enjoy life together with your friends
-                                            and family. Reserve a table for yourself and your beloved ones and let us
-                                            take you on a culinary journey. Just give us a call during our opening
-                                            hours.</p>
+                                        <p style="text-align: center;" th:text="#{about.info}"></p>
 
                                     </div>
                                 </div>
