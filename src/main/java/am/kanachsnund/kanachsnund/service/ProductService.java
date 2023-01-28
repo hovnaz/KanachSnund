@@ -3,7 +3,9 @@ package am.kanachsnund.kanachsnund.service;
 import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
 import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
 import am.kanachsnund.kanachsnund.entity.Product;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ProductService {
@@ -17,4 +19,8 @@ public interface ProductService {
     void deleteById(int id);
 
     List<ProductResponse> findAllByIdAndProductByLanguage(String language);
+
+    byte[] getImage(String fileName);
+
+    String saveImage(MultipartFile file) throws IOException;
 }
