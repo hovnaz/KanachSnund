@@ -6,9 +6,18 @@ import am.kanachsnund.kanachsnund.entity.Product;
 import am.kanachsnund.kanachsnund.mapper.ProductCrudMapper;
 import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
+import am.kanachsnund.kanachsnund.util.IOUtil;
+import am.kanachsnund.kanachsnund.util.ImageUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +27,9 @@ public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final ProductCrudMapper productCrudMapper;
+    private final IOUtil ioUtil;
+    @Value("${project.images.product}")
+    private String folderPath;
 
     @Override
     public List<Product> findAllProduct() {
@@ -49,6 +61,19 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductResponse> findAllByIdAndProductByLanguage(String language) {
         List<Product> productList = productRepository.findAll();
         return productList.stream().map(val -> productConvertToResponse(val, language.toLowerCase())).collect(Collectors.toList());
+    }
+
+    @Override
+    public byte[] getImage(String fileName) {
+        return ioUtil.getAllBytesByUrl(folderPath + File.separator + fileName);
+    }
+
+    @Override
+    public String saveImage(MultipartFile file) throws IOException {
+        byte[] bytearray = ImageUtil.compressImage(file.getBytes());
+        BufferedImage imag = ImageIO.read(new ByteArrayInputStream(bytearray));
+        ImageIO.write(imag, "jpg", new File(folderPath, "snap.jpg"));
+        return file.getOriginalFilename();
     }
 
     private ProductResponse productConvertToResponse(Product product, String language) {
