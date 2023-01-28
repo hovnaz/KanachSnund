@@ -41,24 +41,24 @@
                             <li th:class="${currentUrl == '/' or currentUrl == '' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                                 data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a
                                     href="/"><span
-                                    class="txt">Գլխավոր էջ</span><span class="mi et-icon-arrow-down"></span></a>
+                                    class="txt" th:text="#{menu.main}"></span><span class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
                                     th:class="${currentUrl == '/about-us' or currentUrl == '/about-us/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/about-us"><span
-                                    class="txt">Մեր մասին</span><span
+                                    class="txt" th:text="#{menu.about}"></span><span
                                     class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
                                     th:class="${currentUrl == '/menu' or currentUrl == '/menu/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/menu"><span
-                                    class="txt">Մենյու</span><span
+                                    class="txt" th:text="#{menu.menu}"></span><span
                                     class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
                                     th:class="${currentUrl == '/contact-us' or currentUrl == '/contact-us/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                                     data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/contact-us"><span
-                                    class="txt">Կապ մեզ հետ</span><span
+                                    class="txt" th:text="#{menu.contact}"></span><span
                                     class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li style="position: relative;bottom: 7px;display: flex;">
@@ -88,13 +88,13 @@
                                     <div class="wpb_wrapper">
 
                                         <div id="text-2" class="widget widget_text">
-                                            <div class="widget-body"><h5 class="widget_title">Find us</h5>
+                                            <div class="widget-body"><h5 class="widget_title" th:text="#{footer.findUs}"></h5>
                                                 <div class="textwidget"><p>
-                                                    Հեռ։ 374 94 951 951<span class="et-gap et-clearfix "
+                                                    <span th:text="#{user.phone}"></span><span class="et-gap et-clearfix "
                                                                              style="height:12px"> </span>
-                                                    Հեռ: 374 55 951 951<span class="et-gap et-clearfix "
+                                                    <span th:text="#{user.phone}"></span><span class="et-gap et-clearfix "
                                                                              style="height:12px"> </span>
-                                                    Email: kanachfood@gmail.com
+                                                    <span th:text="#{input.email}"></span>
                                                 </p>
                                                 </div>
                                             </div>
@@ -113,12 +113,10 @@
 
                                         <div id="text-3" class="widget widget_text">
                                             <div class="widget-body">
-                                                <h5 class="widget_title">ՀԵՏԵՎԵՔ ՄԵԶ
-                                                    <div class="textwidget"><p style="font-weight: 100">Բաց մի
-                                                        թողեք «Կանաչ Սնունդ»-ի վերջին նորությունները և
-                                                        իրադարձությունները. Գտեք մեզ սոցիալական ցանցերում։<span
+                                                <h5 class="widget_title" th:text="#{footer.follow}"></h5>
+                                                    <div class="textwidget"><p style="font-weight: 100"><span th:text="#{footer.inform}"
                                                                 class="et-gap et-clearfix "
-                                                                style="height:12px"> </span>
+                                                                style="height:12px; display: inline"> </span>
                                                         <div id="et-social-links-1"
                                                              class="et-social-links social-links et-clearfix  styling-original-false">
                                                             <style>#et-social-links-1 a {

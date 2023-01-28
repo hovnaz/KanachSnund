@@ -9,15 +9,7 @@
                 <div class="wpb_wrapper">
                     <div class="wpb_text_column wpb_content_element  blockquote-inline">
                         <div class="wpb_wrapper">
-                            <blockquote><p>
-                                «Կանաչ Սնունդ» ընկերությունը հիմնադրվել է 2017թ.-ին։
-                                Շուրջ 5 տարի մեր ընկերությունը
-                                առաջատար է աշխարհահռչակ արևելյան ուտեստների
-                                արտադրության շուկայում ։ Մենք համագործակցում ենք
-                                Հանրապետության բոլոր խոշոր սուպերմարկետների և
-                                հիպերմարկետների հետ։ Աշխատում ենք նաև HoReCa ոլորտում,
-                                ուստի մեր արտադրանքը կարելի է գտնել նաև Հայաստանի
-                                բազմաթիվ խոշոր և հայտնի ռեստորաններում և հյուրանոցներում։
+                            <blockquote><p th:text="#{container.info}">
                             </p></blockquote>
 
                         </div>
@@ -204,8 +196,8 @@
                 <div class="vc_column-inner ">
                     <div class="wpb_wrapper">
                         <div style="font-size: 56px;color: #2a5c2d;line-height: 56px;text-align: center;font-family:Abril Fatface;font-weight:400;font-style:normal"
-                             class="vc_custom_heading et-pinyon vc_custom_1607606709738">Մեր
-                            Տեսականին
+                             class="vc_custom_heading et-pinyon vc_custom_1607606709738">
+                            <span th:text="#{product.title}"></span>
                         </div>
                         <span class="et-gap et-clearfix " style="height:32px"> </span>
                         <div class="recent-menus-layout menu-layout lazy lazy-load carousel menu-container-wide post-size-small filter-false"
@@ -243,7 +235,7 @@
                     </div>
                 </div>
                 <span class="et-gap et-clearfix " style="height:56px">&nbsp;</span>
-                <button type="submit" name="Բաժանորդագրվել" th:onclick="|window.location.href='/menu'|">Տեսնել Ավելին</button>
+                <button type="submit" name="Բաժանորդագրվել" th:onclick="|window.location.href='/menu'|" th:text="#{product.showmore}"></button>
             </div>
         </div>
 
@@ -263,7 +255,7 @@
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper">
                     <div style="font-size: 56px;color: #2a5c2d;line-height: 56px;text-align: center;font-family:Abril Fatface;font-weight:400;font-style:normal"
-                         class="vc_custom_heading et-pinyon vc_custom_1525080440732">Ձեր կարծիքը
+                         class="vc_custom_heading et-pinyon vc_custom_1525080440732"><span th:text="#{user.opinion}"></span>
                     </div>
                     <div class="et-mailchimp-wrapper center-false" style="margin-top: 70px">
                         <div id="et-mailchimp-1" class="et-mailchimp">
@@ -273,14 +265,14 @@
                                 <div class="input-wrap">
                                     <input type="text" value="" name="email" class="email"
                                            required=""
-                                           data-placeholder="Մուտքագրեք ձեր email-ը">
+                                           data-placeholder="" th:placeholder="#{user.email}">
 <!--                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>-->
-                                    <textarea name="message" placeholder="Ձեր կարցիքը"></textarea>
+                                    <textarea name="message" th:placeholder="#{user.opinion}"></textarea>
                                     <span class="after"></span>
                                 </div>
 
                                 <button onclick="document.getElementById('mc-embedded-subscribe-form').submit();" type="submit" name="Բաժանորդագրվել"
-                                        id="mc-embedded-subscribe">ՈՒղարկել
+                                        id="mc-embedded-subscribe" th:text="#{opinion.send}">
                                 </button>
                                 <input type="hidden"
                                        name="b_f51d66947abf83c3737f089cc_950c8576e9"
