@@ -147,3 +147,51 @@ button:hover {
         opacity: 0
     }
 }
+
+.createProductPage{
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    background-color: lightgrey;
+    min-height: 900px;
+}
+
+
+.createProductPage>form{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.createProductPage>form>input{
+    margin: 10px;
+    width: 300px;
+    height: 30px;
+}
+
+.createProductPage>form>textarea{
+    width: 300px;
+    margin: 10px;
+    height: 60px;
+}
+
+.createProductButton{
+    background-color: green !important;
+    color: white;
+    text-align: center
+}
+
+
+.createProductPage>table{
+    width: 50%;
+    background-color: white;
+    color: black;
+    margin: 0 auto;
+}
+
+.createProductPage>table>tbody tr{
+    border: 2px solid black;
+}
+

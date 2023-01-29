@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Products</title>
+    <link rel="stylesheet" href="../../assets/css/all.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <style>
         table {
             border-collapse: collapse;
@@ -30,7 +32,8 @@
 </head>
 <body>
 <th:block th:insert="pages/admin/fragments::header"></th:block>
-<a href="/admin/product/create">create product</a>
+<div class="createProductPage">
+<!--<a href="/admin/product/create">create product</a>-->
 <table>
     <thead>
     <td>Image</td>
@@ -58,5 +61,6 @@
     </tr>
     </tbody>
 </table>
+</div>
 </body>
 </html>
