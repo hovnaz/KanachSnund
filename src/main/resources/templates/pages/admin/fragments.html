@@ -31,10 +31,18 @@
     </style>
 
     <header>
-        <a href="/admin/products" th:class="${currentUrl == '/admin/products' ? 'active' : ''}">Products</a>
-        <a href="/admin/feedback" th:class="${currentUrl == '/admin/feedback' ? 'active' : ''}">Feedback messages</a>
-        <a href="/admin/contact-us" th:class="${currentUrl == '/admin/contact-us' ? 'active' : ''}">Contact us
+        <a href="/admin/products"
+           th:class="${currentUrl == '/admin/products' or currentUrl == '/admin/products/' ? 'active' : ''}">Products</a>
+        <a href="/admin/feedback"
+           th:class="${currentUrl == '/admin/feedback' or currentUrl == '/admin/feedback/' ? 'active': ''}">Feedback
             messages</a>
+        <a href="/admin/contact-us"
+           th:class="${currentUrl == '/admin/contact-us' or currentUrl == '/admin/contact-us/' ? 'active' : ''}">Contact
+            us
+            messages</a>
+        <a href="/admin/product/create"
+           th:class="${currentUrl == '/admin/product/create' or currentUrl == '/admin/product/create/' ? 'active' : ''}">create
+            product</a>
     </header>
 </th:block>
 
