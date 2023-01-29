@@ -262,13 +262,11 @@
                     <div class="et-mailchimp-wrapper center-false" style="margin-top: 70px">
                         <div id="et-mailchimp-1" class="et-mailchimp">
                             <form action="/feedback"
-                                  method="post" id="mc-embedded-subscribe-form" class="validate"
-                                  novalidate="">`
+                                  method="post" id="mc-embedded-subscribe-form" class="validate">
                                 <div class="input-wrap">
-                                    <input type="text" value="" name="email" class="email"
-                                           required minlength="10" max="50"
+                                    <input type="email" name="email" class="email"
+                                           required minlength="10" maxlength="50"
                                            data-placeholder="" th:placeholder="#{user.email}">
-                                    <!--                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>-->
                                     <textarea name="message" th:placeholder="#{user.opinion}" required minlength="4"
                                               maxlength="255"></textarea>
                                     <span class="after"></span>
@@ -278,9 +276,6 @@
                                         type="submit" name="Բաժանորդագրվել"
                                         id="mc-embedded-subscribe" th:text="#{opinion.send}">
                                 </button>
-                                <input type="hidden"
-                                       name="b_f51d66947abf83c3737f089cc_950c8576e9"
-                                       tabindex="-1" value="" class="hidden">
                             </form>
                         </div>
                     </div>
