@@ -48,8 +48,4 @@ public class MainController {
         return productService.getImage(fileName);
     }
 
-//    @GetMapping("/**")
-//    public String handleRequest() {
-//        return "redirect:/page";
-//    }
 }

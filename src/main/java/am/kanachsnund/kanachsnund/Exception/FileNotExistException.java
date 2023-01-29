@@ -1,4 +1,4 @@
-package am.kanachsnund.kanachsnund.exseption;
+package am.kanachsnund.kanachsnund.Exception;
 
 public class FileNotExistException extends RuntimeException {
 

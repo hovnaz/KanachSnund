@@ -3,7 +3,7 @@ package am.kanachsnund.kanachsnund.service.impl;
 import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
 import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
 import am.kanachsnund.kanachsnund.entity.Product;
-import am.kanachsnund.kanachsnund.exseption.EntityNotFoundException;
+import am.kanachsnund.kanachsnund.Exception.EntityNotFoundException;
 import am.kanachsnund.kanachsnund.mapper.ProductCrudMapper;
 import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
