@@ -30,6 +30,7 @@
 </head>
 <body>
 <th:block th:insert="pages/admin/fragments::header"></th:block>
+<a href="/admin/product/create">create product</a>
 <table>
     <thead>
     <td>Image</td>
@@ -43,14 +44,17 @@
     </thead>
     <tbody>
     <tr th:each="product: ${productsList}">
-        <td><img th:src="${product.image}"></td>
+        <td><img th:src="'/getProductPic/' + ${product.image}"></td>
         <td th:text="${product.titleUs}"></td>
         <td th:text="${product.titleRu}"></td>
         <td th:text="${product.titleHy}"></td>
         <td th:text="${product.descriptionUs}"></td>
         <td th:text="${product.descriptionRu}"></td>
         <td th:text="${product.descriptionHy}"></td>
-        <td>action</td>
+        <td>
+            <a th:href="'/admin/product/delete/' + ${product.id}">delete</a>
+            <a th:href="'/admin/product/edit/' + ${product.id}">edit</a>
+        </td>
     </tr>
     </tbody>
 </table>

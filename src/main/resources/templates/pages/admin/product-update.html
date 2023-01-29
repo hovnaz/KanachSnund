@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/admin/product/edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" th:value="${product.id}">
+    <input type="text" placeholder="title us" th:value="${product.titleUs}" name="titleUs" required maxlength="255">
+    <input type="text" placeholder="title ru" th:value="${product.titleRu}" name="titleRu" minlength="4">
+    <input type="text" placeholder="title hy" th:value="${product.titleHy}" name="titleHy" minlength="4">
+    <textarea placeholder="description Us" th:text="${product.descriptionUs}" name="descriptionUs" minlength="8"
+              maxlength="500"></textarea>
+    <textarea placeholder="description Ru" th:text="${product.descriptionRu}" name="descriptionRu" minlength="8"
+              maxlength="500"></textarea>
+    <textarea placeholder="description Hy" th:text="${product.descriptionHy}" name="descriptionHy" minlength="8"
+              maxlength="500"></textarea>
+    <input type="file" name="imageFile" accept="image/png, image/gif, image/jpeg">
+    <img th:src="'/getProductPic/' + ${product.image}" alt="">
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

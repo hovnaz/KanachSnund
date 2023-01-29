@@ -1,13 +1,16 @@
 package am.kanachsnund.kanachsnund.controller;
 
 import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
+import am.kanachsnund.kanachsnund.dto.response.ProductCrudResponse;
 import am.kanachsnund.kanachsnund.entity.Contact;
 import am.kanachsnund.kanachsnund.entity.Feedback;
+import am.kanachsnund.kanachsnund.entity.Product;
+import am.kanachsnund.kanachsnund.mapper.ProductCrudMapper;
 import am.kanachsnund.kanachsnund.repository.CommentRepository;
 import am.kanachsnund.kanachsnund.repository.ContactRepository;
+import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.IIOImage;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriteParam;
-import javax.imageio.ImageWriter;
-import javax.imageio.stream.ImageOutputStream;
 import javax.validation.Valid;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -39,51 +33,62 @@ public class AdminControllor {
     private final ProductService productService;
     private final CommentRepository commentRepository;
     private final ContactRepository contactRepository;
-    @Value("${project.images.product}")
-    private String folderPath;
+    private final ProductCrudMapper productCrudMapper;
+    private final ProductRepository productRepository;
 
     @PostMapping("/product/create")
-    public String createProduct(@RequestParam(value = "image") MultipartFile file) throws IOException {
-        BufferedImage image = ImageIO.read(file.getInputStream());
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-// Compress the image
-        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
-        ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
-        writer.setOutput(ios);
-
-        ImageWriteParam param = writer.getDefaultWriteParam();
-        param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        param.setCompressionQuality(0.5f); // Quality of compression
-
-        writer.write(null, new IIOImage(image, null, null), param);
-        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-
-// Save the compressed image to a local file
-        byte[] imageInByte = baos.toByteArray();
-        FileOutputStream fos = new FileOutputStream(folderPath + File.separator + fileName);
-        fos.write(imageInByte);
-        fos.close();
-        baos.close();
-
+    public String createProduct(@Valid @ModelAttribute ProductCrudRequest productCrudRequest,
+                                @RequestParam(value = "imageFile") MultipartFile file) {
+        try {
+            String fileName = productService.saveImage(file);
+            productCrudRequest.setImage(fileName);
+            productService.save(productCrudRequest);
+        } catch (IOException ignored) {
+        }
         return "redirect:/admin/products";
     }
 
-    @GetMapping("/product")
+    @GetMapping("/product/create")
     public String createProductPage() {
         return "pages/admin/product-create";
     }
 
-    @PostMapping("/edit/{id}")
-    public String editProduct(@PathVariable int id, @ModelAttribute @Valid ProductCrudRequest productCrudRequest) {
-        productService.update(id, productCrudRequest);
+    @PostMapping("/product/edit")
+    public String updateProduct(@ModelAttribute ProductCrudRequest productCrudRequest,
+                                @RequestParam(value = "id") int id,
+                                @RequestParam(value = "imageFile", required = false) MultipartFile file) {
+        Product product = productService.findById(id);
+        product.setTitleHy(productCrudRequest.getTitleHy());
+        product.setTitleUs(productCrudRequest.getTitleUs());
+        product.setTitleRu(productCrudRequest.getTitleRu());
+        product.setDescriptionHy(productCrudRequest.getDescriptionHy());
+        product.setDescriptionUs(productCrudRequest.getDescriptionUs());
+        product.setDescriptionRu(productCrudRequest.getDescriptionRu());
+        try {
+            if (!file.isEmpty()) {
+                String fileName = productService.saveImage(file);
+                productCrudRequest.setImage(fileName);
+                product.setImage(fileName);
+            }
+        } catch (IOException ignored) {
+            System.out.println("error");
+        }
+        productRepository.save(product);
+
         return "redirect:/admin/products";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/product/edit/{id}")
+    public String updateProductPage(@PathVariable int id, ModelMap modelMap) {
+        ProductCrudResponse product = productCrudMapper.toResponse(productService.findById(id));
+        modelMap.addAttribute("product", product);
+        return "pages/admin/product-update";
+    }
+
+    @GetMapping("/product/delete/{id}")
     public String deleteProduct(@PathVariable int id) {
         productService.deleteById(id);
-        return "redirect:/admin/product";
+        return "redirect:/admin/products";
     }
 
     @GetMapping("/products")

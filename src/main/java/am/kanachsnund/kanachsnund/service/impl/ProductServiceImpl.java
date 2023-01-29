@@ -3,20 +3,25 @@ package am.kanachsnund.kanachsnund.service.impl;
 import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
 import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
 import am.kanachsnund.kanachsnund.entity.Product;
+import am.kanachsnund.kanachsnund.exseption.EntityNotFoundException;
 import am.kanachsnund.kanachsnund.mapper.ProductCrudMapper;
 import am.kanachsnund.kanachsnund.repository.ProductRepository;
 import am.kanachsnund.kanachsnund.service.ProductService;
 import am.kanachsnund.kanachsnund.util.IOUtil;
-import am.kanachsnund.kanachsnund.util.ImageUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -70,21 +75,44 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public String saveImage(MultipartFile file) throws IOException {
-        byte[] bytearray = ImageUtil.compressImage(file.getBytes());
-        BufferedImage imag = ImageIO.read(new ByteArrayInputStream(bytearray));
-        ImageIO.write(imag, "jpg", new File(folderPath, "snap.jpg"));
-        return file.getOriginalFilename();
+        BufferedImage image = ImageIO.read(file.getInputStream());
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+// Compress the image
+        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
+        ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
+        writer.setOutput(ios);
+
+        ImageWriteParam param = writer.getDefaultWriteParam();
+        param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+        param.setCompressionQuality(0.5f); // Quality of compression
+
+        writer.write(null, new IIOImage(image, null, null), param);
+        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+// Save the compressed image to a local file
+        byte[] imageInByte = baos.toByteArray();
+        FileOutputStream fos = new FileOutputStream(folderPath + File.separator + fileName);
+        fos.write(imageInByte);
+        fos.close();
+        baos.close();
+        return fileName;
+    }
+
+    @Override
+    public Product findById(int id) {
+        return productRepository.findById(id).orElseThrow(() -> {
+            throw new EntityNotFoundException("Product with id: " + id + " NOT FOUND");
+        });
     }
 
     private ProductResponse productConvertToResponse(Product product, String language) {
         switch (language) {
-            case "us":
+            case "hy":
                 return ProductResponse.builder()
-                        .title(product.getTitleUs())
-                        .description(product.getDescriptionUs())
+                        .title(product.getTitleHy())
+                        .description(product.getDescriptionHy())
                         .image(product.getImage())
                         .build();
-
             case "ru":
                 return ProductResponse.builder()
                         .title(product.getTitleRu())
@@ -93,8 +121,8 @@ public class ProductServiceImpl implements ProductService {
                         .build();
             default:
                 return ProductResponse.builder()
-                        .title(product.getTitleHy())
-                        .description(product.getDescriptionHy())
+                        .title(product.getTitleUs())
+                        .description(product.getDescriptionUs())
                         .image(product.getImage())
                         .build();
         }

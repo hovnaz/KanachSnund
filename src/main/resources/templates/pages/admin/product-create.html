@@ -6,7 +6,13 @@
 </head>
 <body>
 <form action="/admin/product/create" method="post" enctype="multipart/form-data">
-    <input type="file" name="image">
+    <input type="text" placeholder="title us" name="titleUs" required maxlength="255">
+    <input type="text" placeholder="title ru" name="titleRu" minlength="4">
+    <input type="text" placeholder="title hy" name="titleHy" minlength="4">
+    <textarea placeholder="description Us" name="descriptionUs" minlength="8", maxlength="500"></textarea>
+    <textarea placeholder="description Ru" name="descriptionRu" minlength="8", maxlength="500"></textarea>
+    <textarea placeholder="description Hy" name="descriptionHy" minlength="8", maxlength="500"></textarea>
+    <input type="file" name="imageFile" accept="image/png, image/gif, image/jpeg" required>
     <input type="submit" value="submit">
 </form>
 </body>

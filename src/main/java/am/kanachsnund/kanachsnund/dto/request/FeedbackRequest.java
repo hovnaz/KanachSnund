@@ -16,6 +16,7 @@ import javax.validation.constraints.Size;
 public class FeedbackRequest {
 
     @Email
+    @Size(min = 10, max = 50)
     private String email;
     @NotBlank
     @Size(min = 4, max = 255)

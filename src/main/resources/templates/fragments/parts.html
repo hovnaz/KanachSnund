@@ -204,7 +204,6 @@
                              data-default-filter="all">
                             <div id="loop-menus-1" data-columns="4"
                                  class="loop-posts loop-menu owl-carousel recent-menus effect-none filter-false et-item-set et-clearfix">
-                                <!-- todo heto backendic togh stana tvyalnery-->
                                 <article
                                         class="et-item post menu all appetizers post-10838 type-menu status-publish has-post-thumbnail hentry menu-category-appetizers"
                                         data-width="60" th:each="product: ${productMenuList}">
@@ -212,7 +211,7 @@
                                         <div class="post-image overlay-hover post-media">
                                             <div class="image-preloader"></div>
                                             <img width="588" height="588"
-                                                 th:src="${product.image}"
+                                                 th:src="'/getProductPic/' + ${product.image}"
                                                  class="attachment-goodresto_588X588 size-goodresto_588X588 wp-post-image"
                                                  alt="Vitello tonnato" decoding="async"
                                                  data-responsive-images="false">
@@ -221,7 +220,8 @@
                                             <div class="post-body-inner-wrap">
                                                 <div class="post-body-inner">
                                                     <h4 class="post-title et-clearfix">
-                                                        <span class="menu-title-inline" th:text="${product.title}"></span>
+                                                        <span class="menu-title-inline"
+                                                              th:text="${product.title}"></span>
                                                     </h4>
                                                     <div class="menu-ingredients" th:text="${product.description}">
                                                     </div>
@@ -235,7 +235,8 @@
                     </div>
                 </div>
                 <span class="et-gap et-clearfix " style="height:56px">&nbsp;</span>
-                <button type="submit" name="Բաժանորդագրվել" th:onclick="|window.location.href='/menu'|" th:text="#{product.showmore}"></button>
+                <button type="submit" name="Բաժանորդագրվել" th:onclick="|window.location.href='/menu'|"
+                        th:text="#{product.showmore}"></button>
             </div>
         </div>
 
@@ -255,7 +256,8 @@
             <div class="vc_column-inner ">
                 <div class="wpb_wrapper">
                     <div style="font-size: 56px;color: #2a5c2d;line-height: 56px;text-align: center;font-family:Abril Fatface;font-weight:400;font-style:normal"
-                         class="vc_custom_heading et-pinyon vc_custom_1525080440732"><span th:text="#{user.opinion}"></span>
+                         class="vc_custom_heading et-pinyon vc_custom_1525080440732"><span
+                            th:text="#{user.opinion}"></span>
                     </div>
                     <div class="et-mailchimp-wrapper center-false" style="margin-top: 70px">
                         <div id="et-mailchimp-1" class="et-mailchimp">
@@ -264,14 +266,16 @@
                                   novalidate="">`
                                 <div class="input-wrap">
                                     <input type="text" value="" name="email" class="email"
-                                           required=""
+                                           required minlength="10" max="50"
                                            data-placeholder="" th:placeholder="#{user.email}">
-<!--                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>-->
-                                    <textarea name="message" th:placeholder="#{user.opinion}"></textarea>
+                                    <!--                                    <p th:if="${#fields.hasErrors('email')}" th:class="${#fields.hasErrors('email')}? error">Invalid Email</p>-->
+                                    <textarea name="message" th:placeholder="#{user.opinion}" required minlength="4"
+                                              maxlength="255"></textarea>
                                     <span class="after"></span>
                                 </div>
 
-                                <button onclick="document.getElementById('mc-embedded-subscribe-form').submit();" type="submit" name="Բաժանորդագրվել"
+                                <button onclick="document.getElementById('mc-embedded-subscribe-form').submit();"
+                                        type="submit" name="Բաժանորդագրվել"
                                         id="mc-embedded-subscribe" th:text="#{opinion.send}">
                                 </button>
                                 <input type="hidden"
@@ -306,10 +310,10 @@
                         <div class="et-separator-decorative large icon-sep-sep5"
                              style="color:#000;margin:96px 0;"></div>
                     </div>
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </th:block>
 </body>

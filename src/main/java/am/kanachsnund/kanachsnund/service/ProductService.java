@@ -1,6 +1,7 @@
 package am.kanachsnund.kanachsnund.service;
 
 import am.kanachsnund.kanachsnund.dto.request.ProductCrudRequest;
+import am.kanachsnund.kanachsnund.dto.response.ProductCrudResponse;
 import am.kanachsnund.kanachsnund.dto.response.ProductResponse;
 import am.kanachsnund.kanachsnund.entity.Product;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,4 +24,6 @@ public interface ProductService {
     byte[] getImage(String fileName);
 
     String saveImage(MultipartFile file) throws IOException;
+
+    Product findById(int id);
 }

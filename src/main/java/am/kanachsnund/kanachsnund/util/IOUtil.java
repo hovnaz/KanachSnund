@@ -28,21 +28,4 @@ public class IOUtil {
             throw new FileNotExistException(e.getMessage());
         }
     }
-
-    public String saveImage(String path, MultipartFile file) {
-        log.info("Request save file to path: {}", path);
-        if (!file.isEmpty()) {
-            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File newFile = new File(path + fileName);
-            try {
-                file.transferTo(newFile);
-            } catch (IOException e) {
-                log.error("Fail to save image with filename: {}", file.getName());
-                throw new FileNotExistException("Fail to save image with filename: " + fileName);
-            }
-            return fileName;
-        }
-        log.error("Fail to save image");
-        throw new FileNotExistException("File not found or is Empty");
-    }
 }
