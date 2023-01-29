@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    username: postgres
+    password: root
+    url: jdbc:postgresql://dbpostgresql:5432/kanachsnund
+project:
+  username: admin@mail.com
+  password: admin
+  images:
+    product: /var/images

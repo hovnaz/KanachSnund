@@ -1,0 +1,28 @@
+version: '3.5'
+services:
+  app-mvc:
+    container_name: app-kanachsnund-mvc
+    image: app-kanachsnund
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - dbpostgresql
+    volumes:
+      - app-image:/var/images
+  dbpostgresql:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=kanachsnund
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  db:
+    driver: local
+  app-image:
+    driver: local
