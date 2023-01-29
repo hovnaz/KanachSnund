@@ -30,3 +30,8 @@ project:
   images:
     product: D:\\images
 
+server:
+  error:
+    whitelabel:
+      enabled: false
+    path: /error

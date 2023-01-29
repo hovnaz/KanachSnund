@@ -47,4 +47,9 @@ public class MainController {
     public @ResponseBody byte[] getImage(@PathVariable String fileName) {
         return productService.getImage(fileName);
     }
+
+//    @GetMapping("/**")
+//    public String handleRequest() {
+//        return "redirect:/page";
+//    }
 }

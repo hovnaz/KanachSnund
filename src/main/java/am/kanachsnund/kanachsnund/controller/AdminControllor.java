@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
@@ -110,6 +111,8 @@ public class AdminControllor {
         modelMap.addAttribute("contacts", contactList);
         return "pages/admin/contact-us";
     }
-
-
+    @GetMapping("/**")
+    public String handleRequest() {
+        return "redirect:/admin/products";
+    }
 }
