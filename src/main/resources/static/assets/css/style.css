@@ -76,6 +76,25 @@ button:hover {
     letter-spacing: 7px;
 }
 
+.text-wrap {
+    white-space: normal !important;
+}
+
+.header-span-txt-bold {
+    display: block;
+    text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+    /*.header-span-txt {*/
+    /*    font-size: 16px;*/
+    /*}*/
+    .header-span-txt-bold {
+        touch-action: manipulation;
+        font-size: 24px;
+    }
+}
+
 .header-span-txt-block {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 8px 16px;
@@ -112,38 +131,4 @@ button:hover {
     height: auto !important;
     display: flex;
     flex-wrap: wrap;
-}
-
-
-#headerFullScreenSlider img {
-    animation: fade-out;
-    animation-duration: 1s;
-}
-
-#headerFullScreenSlider img.hidden {
-    animation: fade-out;
-    animation-duration: 1s;
-}
-
-#headerFullScreenSlider img.show {
-    animation: fade-in;
-    animation-duration: 1s;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-out {
-    from {
-        opacity: 1
-    }
-    to {
-        opacity: 0
-    }
 }
