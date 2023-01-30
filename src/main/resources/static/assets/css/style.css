@@ -164,3 +164,25 @@ button:hover {
         display: none;
     }
 }
+html, body{
+    width: 100vw !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+@media only screen and (max-width: 550px) {
+    .response-text-bold {
+        font-size: 26px !important;
+    }
+}
+@media only screen and (max-width: 480px) {
+    .supermarkets-text {
+        display: none;
+    }
+    .supermarkets-before::before{
+        content: "" !important;
+    }
+    .supermarkets-img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}

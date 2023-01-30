@@ -8,6 +8,13 @@
                 <div class="et-separator-decorative medium icon-sep-sep5" style="color:#000;margin-top:88px;"></div>
             </div>
             <ul class="menu">
+                <li>
+                    <a href="?lang=hy"><img src="../../assets/flag/hy.png" alt="hy" width="22px"></a><a
+                        href="?lang=ru"><img src="../../assets/flag/ru.png" alt="ru" width="22px"></a><a
+                        href="?lang=en"><img src="../../assets/flag/us.png" alt="us" width="22px"></a>
+                </li>
+            </ul>
+            <ul class="menu">
                 <li th:class="${currentUrl == '/' or currentUrl == '' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                     data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a
                         href="/"><span
@@ -53,14 +60,6 @@
                         <div class="mob-menu-toggle" onclick="toggleNav()">
                             <span></span>
                         </div>
-                        <ul class="menu"
-                            style="position: absolute;right: 40px;width: 100px;height: 40px;top: -25px;">
-                            <li style="position: relative;bottom: 7px;display: flex;">
-                                <a href="?lang=hy"><img src="../../assets/flag/hy.png" alt="hy" width="22px"></a><a
-                                    href="?lang=ru"><img src="../../assets/flag/ru.png" alt="ru" width="22px"></a><a
-                                    href="?lang=en"><img src="../../assets/flag/us.png" alt="us" width="22px"></a>
-                            </li>
-                        </ul>
 
                     </div>
                 </div>
@@ -141,7 +140,7 @@
         <section class="wpb-content-wrapper">
             <div id="footer-widget-area"
                  class="vc_row wpb_row vc_row-fluid vc_custom_1523365858770 vc_row-has-fill vc_column-gap-40">
-                <div class="vc-container et-clearfix" style="display: flex; justify-content: center;">
+                <div class="vc-container et-clearfix" style="display: flex; justify-content: center;flex-wrap: wrap">
                     <div data-animation-delay="0"
                          class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
                         <div class="vc_column-inner ">
