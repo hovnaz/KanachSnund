@@ -2,6 +2,43 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <body>
 <th:block th:fragment="header">
+    <div class="slide-bar" id="slide-bar">
+        <nav class="header-menu desk-menu et-clearfix">
+            <div class="sep-wrap center  et-clearfix">
+                <div class="et-separator-decorative medium icon-sep-sep5" style="color:#000;margin-top:88px;"></div>
+            </div>
+            <ul class="menu">
+                <li th:class="${currentUrl == '/' or currentUrl == '' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
+                    data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a
+                        href="/"><span
+                        class="txt" th:text="#{menu.main}"></span><span
+                        class="mi et-icon-arrow-down"></span></a>
+                </li>
+                <li
+                        th:class="${currentUrl == '/about-us' or currentUrl == '/about-us/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
+                        data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/about-us"><span
+                        class="txt" th:text="#{menu.about}"></span><span
+                        class="mi et-icon-arrow-down"></span></a>
+                </li>
+                <li
+                        th:class="${currentUrl == '/menu' or currentUrl == '/menu/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
+                        data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/menu"><span
+                        class="txt" th:text="#{menu.menu}"></span><span
+                        class="mi et-icon-arrow-down"></span></a>
+                </li>
+                <li
+                        th:class="${currentUrl == '/contact-us' or currentUrl == '/contact-us/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
+                        data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="/contact-us"><span
+                        class="txt" th:text="#{menu.contact}"></span><span
+                        class="mi et-icon-arrow-down"></span></a>
+                </li>
+            </ul>
+            <div class="sep-wrap center  et-clearfix">
+                <div class="et-separator-decorative medium icon-sep-sep5" style="color:#000;margin-top:88px;"></div>
+            </div>
+        </nav>
+    </div>
+
     <header class="header-mobile one-page-side top-false sidebar-true top-sl-true transparent-true no-logo-false">
         <div class="header-content">
             <div class="header-body">
@@ -13,7 +50,17 @@
                                      src="../../resource/Spitak.png" alt="">
                             </a>
                         </div>
-                        <div class="mob-menu-toggle"><span></span></div>
+                        <div class="mob-menu-toggle" onclick="toggleNav()">
+                            <span></span>
+                        </div>
+                        <ul class="menu"
+                            style="position: absolute;right: 40px;width: 100px;height: 40px;top: -25px;">
+                            <li style="position: relative;bottom: 7px;display: flex;">
+                                <a href="?lang=hy"><img src="../../assets/flag/hy.png" alt="hy" width="22px"></a><a
+                                    href="?lang=ru"><img src="../../assets/flag/ru.png" alt="ru" width="22px"></a><a
+                                    href="?lang=en"><img src="../../assets/flag/us.png" alt="us" width="22px"></a>
+                            </li>
+                        </ul>
 
                     </div>
                 </div>
@@ -27,12 +74,12 @@
             <div class="header-body">
                 <div class="container et-clearfix">
                     <div class="logo logo-desk">
-                        <a href="/" title="Goodresto">
+                        <a href="/" title="Kanach Snund">
                             <img class="normal-logo" style="max-width:250px;max-height:80px"
-                                 src="../../resource/Spitak.png" alt="Goodresto">
+                                 src="../../resource/Spitak.png" alt="Kanach Snund">
                             <img class="sticky-logo"
                                  style="max-width:167px;max-height:55px;margin-top:-27px;margin-left:-83.5px;filter: brightness(0%);"
-                                 src="../../resource/Spitak.png" alt="Goodresto">
+                                 src="../../resource/Spitak.png" alt="Kanach Snund">
                         </a>
                     </div>
 
@@ -41,7 +88,8 @@
                             <li th:class="${currentUrl == '/' or currentUrl == '' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
                                 data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a
                                     href="/"><span
-                                    class="txt" th:text="#{menu.main}"></span><span class="mi et-icon-arrow-down"></span></a>
+                                    class="txt" th:text="#{menu.main}"></span><span
+                                    class="mi et-icon-arrow-down"></span></a>
                             </li>
                             <li
                                     th:class="${currentUrl == '/about-us' or currentUrl == '/about-us/' ? 'menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children' : 'menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children'}"
@@ -73,6 +121,20 @@
             </div>
         </div>
     </header>
+    <script>
+        /* Set the width of the side navigation to 250px */
+        var slideIsOpen = false;
+
+        function toggleNav() {
+            if (slideIsOpen === false) {
+                document.getElementById("slide-bar").style.width = "250px";
+            } else {
+                document.getElementById("slide-bar").style.width = "0";
+            }
+            slideIsOpen = !slideIsOpen;
+
+        }
+    </script>
 </th:block>
 <th:block th:fragment="footer">
     <footer data-sticky="false" class="footer et-clearfix">
@@ -88,12 +150,15 @@
                                     <div class="wpb_wrapper">
 
                                         <div id="text-2" class="widget widget_text">
-                                            <div class="widget-body"><h5 class="widget_title" th:text="#{footer.findUs}"></h5>
+                                            <div class="widget-body"><h5 class="widget_title"
+                                                                         th:text="#{footer.findUs}"></h5>
                                                 <div class="textwidget"><p>
-                                                    <span th:text="#{user.phone}"></span><span class="et-gap et-clearfix "
-                                                                             style="height:12px"> </span>
-                                                    <span th:text="#{user.phone2}"></span><span class="et-gap et-clearfix "
-                                                                             style="height:12px"> </span>
+                                                    <span th:text="#{user.phone}"></span><span
+                                                        class="et-gap et-clearfix "
+                                                        style="height:12px"> </span>
+                                                    <span th:text="#{user.phone2}"></span><span
+                                                        class="et-gap et-clearfix "
+                                                        style="height:12px"> </span>
                                                     <span th:text="#{input.email}"></span>
                                                 </p>
                                                 </div>
@@ -114,31 +179,35 @@
                                         <div id="text-3" class="widget widget_text">
                                             <div class="widget-body">
                                                 <h5 class="widget_title" th:text="#{footer.follow}"></h5>
-                                                    <div class="textwidget"><p style="font-weight: 100"><span th:text="#{footer.inform}"
-                                                                class="et-gap et-clearfix "
-                                                                style="height:12px; display: inline; font-size: 12px"> </span>
-                                                        <div id="et-social-links-1"
-                                                             class="et-social-links social-links et-clearfix  styling-original-false">
-                                                            <style>#et-social-links-1 a {
-                                                                color: #ffffff;
-                                                                border-radius: 0px;
-                                                            }
+                                                <div class="textwidget"><p style="font-weight: 100"><span
+                                                        th:text="#{footer.inform}"
+                                                        class="et-gap et-clearfix "
+                                                        style="height:12px; display: inline; font-size: 12px"> </span>
+                                                    <div id="et-social-links-1"
+                                                         class="et-social-links social-links et-clearfix  styling-original-false">
+                                                        <style>#et-social-links-1 a {
+                                                            color: #ffffff;
+                                                            border-radius: 0px;
+                                                        }
 
-                                                            #et-social-links-1 a:hover {
-                                                                color: #2a5c2d;
-                                                            }</style>
-                                                            <a class="et-icon-facebook" href="https://www.facebook.com/Kanachsnund"
-                                                               target="_blank" rel="noopener"></a>
-                                                            <a
-                                                                    class="et-icon-instagram"
-                                                                    href="https://www.instagram.com/kanachsnund/"
-                                                                    target="_blank" rel="noopener"></a>
+                                                        #et-social-links-1 a:hover {
+                                                            color: #2a5c2d;
+                                                        }</style>
+                                                        <a class="et-icon-facebook"
+                                                           href="https://www.facebook.com/Kanachsnund"
+                                                           target="_blank" rel="noopener"></a>
+                                                        <a
+                                                                class="et-icon-instagram"
+                                                                href="https://www.instagram.com/kanachsnund/"
+                                                                target="_blank" rel="noopener"></a>
                                                         <a
                                                                 class="icon-tiktok"
                                                                 href="https://www.tiktok.com/@kanachsnund"
-                                                                target="_blank" rel="noopener" style="margin: 0 8px 8px 0"><img src="../../resource/tiktok.png" alt="tiktok"></a>
-                                                        </div>
+                                                                target="_blank" rel="noopener"
+                                                                style="margin: 0 8px 8px 0"><img
+                                                                src="../../resource/tiktok.png" alt="tiktok"></a>
                                                     </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

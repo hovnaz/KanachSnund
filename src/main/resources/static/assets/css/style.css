@@ -96,6 +96,7 @@ button:hover {
 }
 
 .header-span-txt-block {
+    max-width: 1200px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 8px 16px;
     border-radius: 5px;
@@ -131,4 +132,35 @@ button:hover {
     height: auto !important;
     display: flex;
     flex-wrap: wrap;
+}
+
+.slide-bar {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 999999999999999999999;
+    overflow-y: auto;
+    transition: 300ms;
+}
+
+.slide-bar a {
+    color: #0e0e0e !important;
+}
+
+.slide-bar li {
+    width: 100%;
+    margin: 0;
+    display: block;
+    margin-left: 0 !important;
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+@media only screen and (min-width: 1280px) {
+    .slide-bar {
+        display: none;
+    }
 }
