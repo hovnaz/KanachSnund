@@ -10,14 +10,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {
-            EntityNotFoundException.class,
-            FileNotExistException.class,
-            UserNotFoundException.class,
-            RuntimeException.class,
-            Exception.class
-    })
-    public String handleEntityNotFoundException() {
-        return "view/404";
-    }
+//    @ExceptionHandler(value = {
+//            EntityNotFoundException.class,
+//            FileNotExistException.class,
+//            UserNotFoundException.class,
+//            RuntimeException.class,
+//            Exception.class
+//    })
+//    public String handleEntityNotFoundException() {
+//        return "view/404";
+//    }
 }

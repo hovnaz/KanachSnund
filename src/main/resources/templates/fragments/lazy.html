@@ -9,37 +9,63 @@
             <rs-slides style="overflow: hidden; position: absolute;">
                 <rs-slide style="position: absolute;" data-key="rs-1" data-title="Slide 1" data-anim="r:0;"
                           data-in="o:0;" data-out="a:false;" class="header-bg">
-                    <img src="../../resource/bg.jpg" alt=""
-                         title="Home main" class="rev-slidebg tp-rs-img rs-lazyload"
+                    <img src="../../resource/bg.jpg" alt="" title="Home main" class="rev-slidebg tp-rs-img rs-lazyload"
                          data-parallax="5" data-panzoom="d:20000;ss:100;se:110;" data-no-retina="">
-                    <rs-layer id="slider-1-slide-1-layer-2" data-type="text"
+                    <rs-layer class="text-wrap" data-type="text"
                               data-xy="x:c;y:m;yo:34px,34px,34px,14px;"
                               data-text="s:72,72,72,40;l:72,72,72,40;ls:15px,15px,15px,5px;fw:700;a:inherit;"
                               data-rsp_o="off" data-rsp_bd="off" data-frame_0="y:50px;"
                               data-frame_1="e:easeOutExpo;st:1100;sp:900;sR:1100;"
                               data-frame_999="o:0;st:w;sR:7000;"
-                              style="z-index:6;font-family:'Cabin Condensed';text-transform:uppercase;">
+                              style="z-index:6;font-family:'Cabin Condensed';text-transform:uppercase;white-space: normal !important;">
                         <div class="header-span-txt-block">
-                            <span th:text="#{header.name}"></span>
+                            <span class="header-span-txt-bold" th:text="#{header.name}"></span>
                             <span class="header-span-txt" th:text="#{header.info}"><span
-                                    ></span></span>
+                            ></span></span>
+                        </div>
+                    </rs-layer>
+                </rs-slide>
+                <rs-slide style="position: absolute;" data-key="rs-2" data-title="Slide 1" data-anim="r:1;"
+                          data-in="o:0;" data-out="a:false;" class="header-bg">
+                    <img src="../../resource/bg-2.jpg" alt="" title="Home main"
+                         class="rev-slidebg tp-rs-img rs-lazyload"
+                         data-parallax="5" data-panzoom="d:20000;ss:100;se:110;" data-no-retina="">
+                    <rs-layer class="text-wrap" data-type="text"
+                              data-xy="x:c;y:m;yo:34px,34px,34px,14px;"
+                              data-text="s:72,72,72,40;l:72,72,72,40;ls:15px,15px,15px,5px;fw:700;a:inherit;"
+                              data-rsp_o="off" data-rsp_bd="off" data-frame_0="y:50px;"
+                              data-frame_1="e:easeOutExpo;st:1100;sp:900;sR:1100;"
+                              data-frame_999="o:0;st:w;sR:7000;"
+                              style="z-index:6;font-family:'Cabin Condensed';text-transform:uppercase;white-space: normal !important;">
+                        <div class="header-span-txt-block">
+                            <span class="header-span-txt-bold" th:text="#{header.name}"></span>
+                            <span class="header-span-txt" th:text="#{header.info}"><span
+                            ></span></span>
+                        </div>
+                    </rs-layer>
+                </rs-slide>
+                <rs-slide style="position: absolute;" data-key="rs-3" data-title="Slide 1" data-anim="r:1;"
+                          data-in="o:0;" data-out="a:false;" class="header-bg">
+                    <img src="../../resource/bg-3.jpg" alt="" title="Home main"
+                         class="rev-slidebg tp-rs-img rs-lazyload"
+                         data-parallax="5" data-panzoom="d:20000;ss:100;se:110;" data-no-retina="">
+                    <rs-layer class="text-wrap" data-type="text"
+                              data-xy="x:c;y:m;yo:34px,34px,34px,14px;"
+                              data-text="s:72,72,72,40;l:72,72,72,40;ls:15px,15px,15px,5px;fw:700;a:inherit;"
+                              data-rsp_o="off" data-rsp_bd="off" data-frame_0="y:50px;"
+                              data-frame_1="e:easeOutExpo;st:1100;sp:900;sR:1100;"
+                              data-frame_999="o:0;st:w;sR:7000;"
+                              style="z-index:6;font-family:'Cabin Condensed';text-transform:uppercase;white-space: normal !important;">
+                        <div class="header-span-txt-block">
+                            <span class="header-span-txt-bold" th:text="#{header.name}"></span>
+                            <span class="header-span-txt" th:text="#{header.info}"><span
+                            ></span></span>
                         </div>
                     </rs-layer>
                 </rs-slide>
             </rs-slides>
         </rs-module>
     </rs-module-wrap>
-    <!-- END REVOLUTION SLIDER -->
-
-    <script>
-        let index = 0;
-        const arrayImages = ["../../resource/bg.jpg", "https://i.ytimg.com/vi/pbMwTqkKSps/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDhXZO9Mjpspf-1GblkVy1AU6V9GQ", "https://i.ytimg.com/vi/UprcpdwuwCg/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLBxMGh2JLXJSudDIEYyE1RfrxvEpg"];
-        document.querySelector("#headerFullScreenSlider img").src = arrayImages[index];
-        setInterval(() => {
-            index = (arrayImages.length - 1) === index ? 0 : index+1;
-            document.querySelector("#headerFullScreenSlider img").src = arrayImages[index];
-        }, 15000);
-    </script>
 </th:block>
 
 <th:block th:fragment="headerFullScreenSliderSmall (titleValue)">
