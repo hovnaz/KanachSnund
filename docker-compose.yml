@@ -15,7 +15,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_PASSWORD=fjvedhf43672873ehjcbeg463487hcehvcgecje
       - POSTGRES_USER=postgres
       - POSTGRES_DB=kanachsnund
     volumes:

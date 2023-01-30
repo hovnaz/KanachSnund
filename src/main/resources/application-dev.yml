@@ -1,10 +1,10 @@
 spring:
   datasource:
-    username: postgres
-    password: root
+    username: root
+    password: fjvedhf43672873ehjcbeg463487hcehvcgecje
     url: jdbc:postgresql://dbpostgresql:5432/kanachsnund
 project:
-  username: admin@mail.com
-  password: admin
+  username: kanachsnund.marketing@gmail.com
+  password: Kanachsnund2023-new-project
   images:
     product: /var/images
