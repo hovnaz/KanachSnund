@@ -8,3 +8,5 @@ project:
   password: Kanachsnund-new-project
   images:
     product: /var/images
+server:
+  port: 80
