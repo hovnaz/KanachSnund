@@ -79,13 +79,19 @@ public class ProductServiceImpl implements ProductService {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 // Compress the image
-        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
+        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpeg").next();
         ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
         writer.setOutput(ios);
 
         ImageWriteParam param = writer.getDefaultWriteParam();
         param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        param.setCompressionQuality(0.4f); // Quality of compression
+//        3mb
+        if (file.getSize() > 3145728) {
+            param.setCompressionQuality(0.5f); // Quality of compression
+        }
+        else{
+            param.setCompressionQuality(0.95f); // Quality of compression
+        }
 
         writer.write(null, new IIOImage(image, null, null), param);
         String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
