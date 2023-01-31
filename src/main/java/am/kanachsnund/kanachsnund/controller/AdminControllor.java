@@ -105,12 +105,26 @@ public class AdminControllor {
         return "pages/admin/feedback";
     }
 
+    @GetMapping("/feedback/delete/{id}")
+    public String deleteFeedback(@PathVariable int id){
+        commentRepository.deleteById(id);
+        return "redirect:/admin/feedback";
+    }
+
     @GetMapping("/contact-us")
     public String contactUsList(ModelMap modelMap) {
         List<Contact> contactList = contactRepository.findAll();
         modelMap.addAttribute("contacts", contactList);
         return "pages/admin/contact-us";
     }
+
+    @GetMapping("/contact/us/delete/{id}")
+    public String deleteContactUs(@PathVariable int id){
+        contactRepository.deleteById(id);
+        return "redirect:/admin/contact-us";
+    }
+
+
     @GetMapping("/**")
     public String handleRequest() {
         return "redirect:/admin/products";
