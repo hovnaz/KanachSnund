@@ -79,7 +79,7 @@ public class ProductServiceImpl implements ProductService {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
 // Compress the image
-        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpeg").next();
+        ImageWriter writer = ImageIO.getImageWritersByFormatName("png").next();
         ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
         writer.setOutput(ios);
 
