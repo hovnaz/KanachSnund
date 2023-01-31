@@ -52,6 +52,9 @@
         <td th:text="${contact.name}"></td>
         <td th:text="${contact.email}"></td>
         <td th:text="${contact.message}"></td>
+        <td>
+            <a th:href="'/admin/contact/us/delete/' + ${contact.id}">delete</a>
+        </td>
     </tr>
     </tbody>
 </table>
