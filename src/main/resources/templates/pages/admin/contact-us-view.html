@@ -41,25 +41,16 @@
 </head>
 <body>
 <th:block th:insert="pages/admin/fragments::header"></th:block>
-<table>
-    <thead>
-    <td>Name</td>
-    <td>Email</td>
-    <td>Message</td>
-    <td>Action</td>
-    </thead>
-    <tbody>
-    <tr th:each="contact: ${contacts}">
-        <td th:text="${contact.name}"></td>
-        <td th:text="${contact.email}"></td>
-        <td th:text="${contact.message}"></td>
-        <td>
-            <a th:href="'/admin/contact/us/delete/' + ${contact.id}"
-               onclick="return confirm('Are you sure you want to Delete?')">delete</a>
-            <a th:href="'/admin/contact-us/' + ${contact.id}">view</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+
+<h2>Name</h2>
+<p th:text="${contact.name}"></p>
+
+<h2>Email</h2>
+<p th:text="${contact.email}"></p>
+
+<h2>Message</h2>
+<p th:text="${contact.message}"></p>
+
+
 </body>
 </html>

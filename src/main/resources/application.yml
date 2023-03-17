@@ -25,7 +25,7 @@ spring:
     change-log: classpath:db/migration.xml
 
 project:
-  username: admin@mail.com
+  username: admin
   password: admin
   images:
     product: D:\\images

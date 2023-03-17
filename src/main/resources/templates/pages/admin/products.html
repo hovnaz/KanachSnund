@@ -30,6 +30,7 @@
         tbody tr {
             border-bottom: 1px solid #eee;
         }
+
         tbody td {
             max-width: 150px;
             overflow: hidden;
@@ -61,7 +62,8 @@
         <td th:text="${product.descriptionRu}"></td>
         <td th:text="${product.descriptionHy}"></td>
         <td>
-            <a th:href="'/admin/product/delete/' + ${product.id}">delete</a>
+            <a th:href="'/admin/product/delete/' + ${product.id}"
+               onclick="return confirm('Are you sure you want to Delete?')">delete</a>
             <a th:href="'/admin/product/edit/' + ${product.id}">edit</a>
         </td>
     </tr>

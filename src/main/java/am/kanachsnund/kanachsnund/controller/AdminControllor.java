@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -105,8 +105,18 @@ public class AdminControllor {
         return "pages/admin/feedback";
     }
 
+    @GetMapping("/feedback/{id}")
+    public String feedbackView(ModelMap modelMap, @PathVariable int id) {
+        Optional<Feedback> feedbackOptional = commentRepository.findById(id);
+        if (feedbackOptional.isPresent()) {
+            modelMap.addAttribute("feedback", feedbackOptional.get());
+            return "pages/admin/feedback-view";
+        }
+        return "redirect:/admin/feedback";
+    }
+
     @GetMapping("/feedback/delete/{id}")
-    public String deleteFeedback(@PathVariable int id){
+    public String deleteFeedback(@PathVariable int id) {
         commentRepository.deleteById(id);
         return "redirect:/admin/feedback";
     }
@@ -118,12 +128,21 @@ public class AdminControllor {
         return "pages/admin/contact-us";
     }
 
-    @GetMapping("/contact/us/delete/{id}")
-    public String deleteContactUs(@PathVariable int id){
-        contactRepository.deleteById(id);
+    @GetMapping("/contact-us/{id}")
+    public String contactUsView(ModelMap modelMap, @PathVariable int id) {
+        Optional<Contact> contactOptional = contactRepository.findById(id);
+        if (contactOptional.isPresent()) {
+            modelMap.addAttribute("contact", contactOptional.get());
+            return "pages/admin/contact-us-view";
+        }
         return "redirect:/admin/contact-us";
     }
 
+    @GetMapping("/contact/us/delete/{id}")
+    public String deleteContactUs(@PathVariable int id) {
+        contactRepository.deleteById(id);
+        return "redirect:/admin/contact-us";
+    }
 
     @GetMapping("/**")
     public String handleRequest() {
