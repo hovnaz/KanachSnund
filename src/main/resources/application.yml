@@ -28,7 +28,7 @@ project:
   username: admin
   password: admin
   images:
-    product: D:\\images
+    product: E:\\images
 
 server:
   error:

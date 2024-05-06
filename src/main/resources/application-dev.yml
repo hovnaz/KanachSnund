@@ -1,12 +1,9 @@
 spring:
   datasource:
     username: postgres
-    password: fjvedhf43672873ehjcbeg463487hcehvcgecje
-    url: jdbc:postgresql://dbpostgresql:5432/kanachsnund
+    password: PNEwzQTw2CSdW@7
 project:
   username: kanachsnund.marketing@gmail.com
-  password: Kanachsnund-new-project
+  password: PX4vfOXIPYpRLsY
   images:
     product: /var/images
-server:
-  port: 80

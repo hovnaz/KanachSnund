@@ -19,7 +19,7 @@ public class MainController {
 
     private final ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping({"","/"})
     public String mainPage(ModelMap modelMap) {
         List<ProductResponse> productList = productService.findAllByIdAndProductByLanguage(LocaleContextHolder.getLocale().getLanguage());
         modelMap.addAttribute("productMenuList", productList);
