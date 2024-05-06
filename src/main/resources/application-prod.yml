@@ -2,7 +2,6 @@ spring:
   datasource:
     username: postgres
     password: PNEwzQTw2CSdW@7
-    url: jdbc:postgresql://localhost:5432/kanachsnund
 project:
   username: kanachsnund.marketing@gmail.com
   password: PX4vfOXIPYpRLsY
