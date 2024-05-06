@@ -10,6 +10,7 @@ import am.kanachsnund.kanachsnund.service.ProductService;
 import am.kanachsnund.kanachsnund.util.IOUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -62,12 +63,14 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Cacheable(value = "productsByLanguage", key = "#language")
     @Override
     public List<ProductResponse> findAllByIdAndProductByLanguage(String language) {
         List<Product> productList = productRepository.findAll();
         return productList.stream().map(val -> productConvertToResponse(val, language.toLowerCase())).collect(Collectors.toList());
     }
 
+    @Cacheable(value = "images", key = "#fileName")
     @Override
     public byte[] getImage(String fileName) {
         return ioUtil.getAllBytesByUrl(folderPath + File.separator + fileName);

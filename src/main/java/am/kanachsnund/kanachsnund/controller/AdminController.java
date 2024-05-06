@@ -29,7 +29,7 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
-public class AdminControllor {
+public class AdminController {
 
     private final ProductService productService;
     private final CommentRepository commentRepository;
