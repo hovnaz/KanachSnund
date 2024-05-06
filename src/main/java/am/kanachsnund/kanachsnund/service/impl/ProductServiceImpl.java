@@ -63,14 +63,14 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
-    @Cacheable(value = "productsByLanguage", key = "#language")
+//    @Cacheable(value = "productsByLanguage", key = "#language")
     @Override
     public List<ProductResponse> findAllByIdAndProductByLanguage(String language) {
         List<Product> productList = productRepository.findAll();
         return productList.stream().map(val -> productConvertToResponse(val, language.toLowerCase())).collect(Collectors.toList());
     }
 
-    @Cacheable(value = "images", key = "#fileName")
+//    @Cacheable(value = "images", key = "#fileName")
     @Override
     public byte[] getImage(String fileName) {
         return ioUtil.getAllBytesByUrl(folderPath + File.separator + fileName);
